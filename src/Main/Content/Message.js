@@ -13,6 +13,7 @@ const WholeInfo = styled.div`
   letter-spacing: 0.38px;
   color: #292f33;
   padding: 10px;
+  border-bottom: 2px solid #e1e8ed;
 `;
 
 const Pinned = styled.div`
