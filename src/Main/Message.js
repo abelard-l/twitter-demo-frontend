@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import iconComments from "./icons/icon-comments.svg";
 import iconPrivateMessage from "./icons/icon-private-message.svg";
 import iconLike from "./icons/icon-like.svg";

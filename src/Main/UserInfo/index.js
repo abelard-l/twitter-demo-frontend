@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import bigAvatar from "./big-avatar.png";
 import iconJoined from "./icon-joined.svg";
 import iconLink from "./icon-link.svg";

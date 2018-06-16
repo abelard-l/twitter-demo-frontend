@@ -16,7 +16,7 @@ class App extends Component {
       <IntlProvider locale="en">
         <Router>
           <React.Fragment>
-            <Helmet title="Twitter - EveryInteract" />
+            <Helmet title="EveryInteract (@EveryInteract) | Twitter" />
             <Header />
             <Switch>
               <Route exact path="/EveryInteract" component={Main} />

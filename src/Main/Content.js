@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import Message from "./Message";
 import everyInteractionImg from "./icons/every-interaction-image.png";
 import avatarMiddle from "./icons/avatar-middle.png";
