@@ -24,6 +24,7 @@ const MenuItemWrap = styled.div`
   display: flex;
   font-size: 13px;
   color: #667580;
+  margin-right: 20px;
 `;
 
 const Text = styled.span`
@@ -82,27 +83,23 @@ const Tweet = styled.button`
 export default () => (
   <Top>
     <div className="container">
-      <div className="row">
-        <div className="col-xs-4">
-          <Menu>
-            <MenuItem text={"Home"} image={iconHome} />
-            <MenuItem text={"Moments"} image={iconMoments} />
-            <MenuItem text={"Notifications"} image={iconNotifications} />
-            <MenuItem text={"Messages"} image={iconMessages} />
-          </Menu>
-        </div>
-        <div className="col-xs-3">
-          <Logotype>
-            <TwitterLogo src={twitterLogo} />
-          </Logotype>
-        </div>
-        <div className="col-xs-5">
-          <SearchPanel>
-            <Search placeholder="Search Twitter" />
-            <UserLogo src={avatar} />
-            <Tweet>Tweet</Tweet>
-          </SearchPanel>
-        </div>
+      <div className="row middle-xs between-xs">
+        <Menu>
+          <MenuItem text={"Home"} image={iconHome} />
+          <MenuItem text={"Moments"} image={iconMoments} />
+          <MenuItem text={"Notifications"} image={iconNotifications} />
+          <MenuItem text={"Messages"} image={iconMessages} />
+        </Menu>
+
+        <Logotype>
+          <TwitterLogo src={twitterLogo} />
+        </Logotype>
+
+        <SearchPanel>
+          <Search placeholder="Search Twitter" />
+          <UserLogo src={avatar} />
+          <Tweet>Tweet</Tweet>
+        </SearchPanel>
       </div>
     </div>
   </Top>

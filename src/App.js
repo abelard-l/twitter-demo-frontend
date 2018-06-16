@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Main from "./Main";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Redirect, withRouter } from "react-router";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from "react-router-dom";
 import Helmet from "react-helmet";
 
 class App extends Component {
@@ -12,8 +16,11 @@ class App extends Component {
         <React.Fragment>
           <Helmet title="Twitter - EveryInteract" />
           <Header />
+          <Switch>
+            <Route exact path="/EveryInteract" component={Main} />
+            <Redirect exact from="/" to="/EveryInteract" />
+          </Switch>
           <Main />
-          <Redirect to="/EveryInteract" />
         </React.Fragment>
       </Router>
     );
