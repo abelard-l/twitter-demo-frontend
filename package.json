@@ -1,6 +1,7 @@
 {
   "name": "twitter-demo-frontend",
   "version": "0.1.0",
+  "license": "MIT",
   "dependencies": {
     "flexboxgrid2": "^7.2.1",
     "normalize.css": "^8.0.0",

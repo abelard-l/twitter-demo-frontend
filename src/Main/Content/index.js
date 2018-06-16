@@ -16,10 +16,8 @@ const Menu = styled.div`
 `;
 
 const MenuItem = styled.a`
-  line-height: normal;
   font-size: 18px;
-  letter-spacing: -0.1px;
-  color: ${props => (props.active === true ? "#000000" : "#1da1f2")};
+  color: ${props => (props.active ? "#000000" : "#1da1f2")};
   margin-right: 25px;
   text-decoration: none;
 
@@ -57,14 +55,12 @@ const SubMessageText = styled.div`
   max-width: 75%;
   line-height: 22px;
   font-size: 13px;
-  letter-spacing: -0.219231px;
   color: #000000;
 `;
 
 const SubMessageHeader = styled.h3`
   line-height: 22px;
   font-size: 15px;
-  letter-spacing: -0.219231px;
   color: #000000;
   margin-bottom: 2px;
 `;
@@ -103,6 +99,7 @@ export default () => (
         dateinfo={"2 Mar 2015"}
         retweets={17}
         likes={47}
+        currentUserLiked={true}
       >
         <MessageBody>
           We’ve made some more resources for all you wonderful{" "}

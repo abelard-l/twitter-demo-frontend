@@ -9,29 +9,25 @@ const ControlPanel = styled.div`
 `;
 
 const StatItem = styled.div`
-  border-bottom: ${props =>
-    props.active === true ? "4px solid #1DA1F2" : "none"};
+  border-bottom: ${props => (props.active ? "4px solid #1DA1F2" : "none")};
   display: inline-block;
   cursor: pointer;
   line-height: 21px;
   font-size: 12px;
   text-align: center;
-  letter-spacing: 0.00846154px;
   padding: 0 15px 5px 15px;
   color: #788a98;
 `;
 
 const Text = styled.div`
-  color: ${props => (props.active === true ? "#707E88" : "#788a98")};
+  color: ${props => (props.active ? "#707E88" : "#788a98")};
 `;
 
 const Amount = styled.div`
-  color: ${props => (props.active === true ? "#1DA1F2" : "#788a98")};
+  color: ${props => (props.active ? "#1DA1F2" : "#788a98")};
   font-size: 18px;
-  margin: ${props =>
-    props.active === true ? "0px 0px 0px 0px" : "4px 0px 0px 0px"};
-  padding: ${props =>
-    props.active === true ? "0px 0px 0px 0px" : "4px 0px 0px 0px"};
+  margin: ${props => (props.active ? "0px 0px 0px 0px" : "4px 0px 0px 0px")};
+  padding: ${props => (props.active ? "0px 0px 0px 0px" : "4px 0px 0px 0px")};
   font-weight: bold;
 `;
 
@@ -60,7 +56,6 @@ const FollowBtn = styled.button`
   box-sizing: border-box;
   border-radius: 100px;
   cursor: pointer;
-  line-height: normal;
   font-size: 14px;
   text-align: center;
   padding: 9px 27px;
@@ -74,8 +69,7 @@ export default () => (
   <ControlPanel>
     <div className="container">
       <div className="row">
-        <div className="col-xs-3" />
-        <div className="col-xs-6">
+        <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
             <StatInfo name={"Tweets"} amount={8058} active={true} />
             <StatInfo name={"Following"} amount={721} />

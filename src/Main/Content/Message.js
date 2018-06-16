@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import iconComments from "./icon-comments.svg";
-import iconEnvelope from "./icon-envelope.svg";
-import iconLove from "./icon-love.svg";
-import iconLoveRed from "./icon-love-red.svg";
+import iconPrivateMessage from "./icon-private-message.svg";
+import iconLike from "./icon-like.svg";
+import iconLikeRed from "./icon-like-red.svg";
 import iconPinned from "./icon-pinned.svg";
 import iconRetweet from "./icon-retweet.svg";
 
-const WholeInfo = styled.div`
+const UserPost = styled.div`
   line-height: 30px;
   font-size: 25px;
-  letter-spacing: 0.38px;
   color: #292f33;
   padding: 10px;
   border-bottom: 2px solid #e1e8ed;
@@ -23,9 +22,7 @@ const Pinned = styled.div`
 `;
 
 const PinnedText = styled.span`
-  line-height: normal;
   font-size: 12px;
-  letter-spacing: -0.175385px;
   color: #707e88;
   margin-left: 12px;
 `;
@@ -74,7 +71,6 @@ const DateInfo = styled.span`
 const Message = styled.div``;
 
 const Stats = styled.div`
-  line-height: normal;
   font-size: 13px;
   color: #667580;
   margin-top: 10px;
@@ -82,29 +78,51 @@ const Stats = styled.div`
   justify-content: flex-start;
 `;
 
-const Amount = styled.span``;
+const Amount = styled.span`
+  color: ${props => (props.currentUserLiked ? "#E2264D" : "inherit")};
+  margin-left: 5px;
+`;
 
-const AmountRed = styled.span``;
-
-const Comments = styled.span`
+const ActionAndStat = styled.span`
   display: flex;
   align-items: center;
   margin-right: 30px;
 `;
 
-const Retweets = styled.span`
-  display: flex;
-  align-items: center;
-  margin-right: 30px;
+const CommentBtn = styled.button`
+  background: url(${iconComments}) no-repeat;
+  border: 0;
+  cursor: pointer;
+  height: 14px;
+  width: 16px;
 `;
 
-const Likes = styled.span`
-  display: flex;
-  align-items: center;
-  margin-right: 30px;
+const RetweetBtn = styled.button`
+  background: url(${iconRetweet}) no-repeat;
+  border: 0;
+  cursor: pointer;
+  height: 14px;
+  width: 19px;
 `;
 
-const Enveloped = styled.span``;
+const LikeBtn = styled.button`
+  background: ${props =>
+    props.currentUserLiked
+      ? "url(" + iconLikeRed + ") no-repeat"
+      : "url(" + iconLike + ") no-repeat"};
+  border: 0;
+  cursor: pointer;
+  height: 14px;
+  width: 17px;
+`;
+
+const PrivateMessageBtn = styled.button`
+  background: url(${iconPrivateMessage}) no-repeat;
+  border: 0;
+  cursor: pointer;
+  height: 14px;
+  width: 15px;
+`;
 
 export default ({
   pinned = false,
@@ -115,10 +133,10 @@ export default ({
   comments,
   retweets,
   likes,
-  envelopes,
+  currentUserLiked = false,
   children
 }) => (
-  <WholeInfo>
+  <UserPost>
     {pinned && (
       <Pinned>
         <Icon src={iconPinned} />
@@ -137,33 +155,23 @@ export default ({
         </UserInfo>
         <Message>{children}</Message>
         <Stats>
-          <Comments>
-            <Icon src={iconComments} />
+          <ActionAndStat>
+            <CommentBtn />
             {comments && <Amount>{comments}</Amount>}
-          </Comments>
-          <Retweets>
-            <Icon src={iconRetweet} />
+          </ActionAndStat>
+          <ActionAndStat>
+            <RetweetBtn />
             {retweets && <Amount>{retweets}</Amount>}
-          </Retweets>
-          <Likes>
-            {likes > 10 ? (
-              <React.Fragment>
-                <Icon src={iconLoveRed} />
-                <AmountRed>{likes}</AmountRed>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <Icon src={iconLove} />
-                {likes && <Amount>{likes}</Amount>}
-              </React.Fragment>
+          </ActionAndStat>
+          <ActionAndStat>
+            <LikeBtn currentUserLiked={currentUserLiked} />
+            {likes && (
+              <Amount currentUserLiked={currentUserLiked}>{likes}</Amount>
             )}
-          </Likes>
-          <Enveloped>
-            <Icon src={iconEnvelope} />
-            {envelopes && <Amount>{envelopes}</Amount>}
-          </Enveloped>
+          </ActionAndStat>
+          <PrivateMessageBtn />
         </Stats>
       </MessageAndStat>
     </Main>
-  </WholeInfo>
+  </UserPost>
 );

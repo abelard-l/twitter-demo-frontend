@@ -5,7 +5,7 @@ import iconHome from "./icon-home.svg";
 import iconMessages from "./icon-messages.svg";
 import iconMoments from "./icon-moments.svg";
 import iconNotifications from "./icon-notifications.svg";
-import loupe from "./loupe.svg";
+import magnifier from "./magnifier.svg";
 import twitterLogo from "./twitter-logo.svg";
 
 const Top = styled.section`
@@ -22,10 +22,7 @@ const Menu = styled.div`
 const MenuItemWrap = styled.div`
   align-items: center;
   display: flex;
-  font-family: HelveticaNeue;
-  line-height: normal;
   font-size: 13px;
-  letter-spacing: 0.01px;
   color: #667580;
 `;
 
@@ -55,14 +52,11 @@ const SearchPanel = styled.div`
 `;
 
 const Search = styled.input`
-  background: url(${loupe}) no-repeat 96% 50% #f5f8fa;
+  background: url(${magnifier}) no-repeat 96% 50% #f5f8fa;
   border: 1px solid #e6ecf0;
   box-sizing: border-box;
   border-radius: 100px;
-  font-family: HelveticaNeue;
-  line-height: normal;
   font-size: 12px;
-  letter-spacing: 0.00923077px;
   color: #687b8a;
   flex-basis: 50%;
   padding: 8px 25px 9px 11px;
@@ -77,7 +71,6 @@ const Tweet = styled.button`
   line-height: 14px;
   font-size: 14px;
   text-align: center;
-  letter-spacing: 0.0107692px;
   color: #ffffff;
   background: #1da1f2;
   border-radius: 100px;
