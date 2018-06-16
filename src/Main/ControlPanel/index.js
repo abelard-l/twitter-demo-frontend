@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import { FormattedNumber } from "react-intl";
 import more from "./more.png";
 
@@ -8,7 +9,7 @@ const ControlPanel = styled.div`
   background: #fff;
 `;
 
-const StatItem = styled.div`
+const StatItem = styled(NavLink)`
   border-bottom: ${props =>
     props.active ? "4px solid #1DA1F2" : "4px solid #fff"};
   display: inline-block;
@@ -18,6 +19,7 @@ const StatItem = styled.div`
   text-align: center;
   padding: 0 15px 5px 15px;
   color: #788a98;
+  text-decoration: none;
 
   &:hover {
     border-bottom: 4px solid #1da1f2;
@@ -41,8 +43,8 @@ const StatInfos = styled.div`
   align-items: center;
 `;
 
-const StatInfo = ({ name, amount, active = false }) => (
-  <StatItem active={active}>
+const StatInfo = ({ name, to, amount, active }) => (
+  <StatItem active={active} exact to={to}>
     <Text active={active}>{name}</Text>
     <Amount active={active}>
       <FormattedNumber value={amount} />
@@ -83,11 +85,24 @@ export default () => (
       <div className="row">
         <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
-            <StatInfo name={"Tweets"} amount={8058} active={true} />
-            <StatInfo name={"Following"} amount={721} />
-            <StatInfo name={"Followers"} amount={1815} />
-            <StatInfo name={"Likes"} amount={460} />
-            <StatInfo name={"Lists"} amount={2} />
+            <StatInfo
+              name={"Tweets"}
+              to={"/EveryInteract/"}
+              amount={8058}
+              active="true"
+            />
+            <StatInfo
+              name={"Following"}
+              to={"/EveryInteract/following"}
+              amount={721}
+            />
+            <StatInfo
+              name={"Followers"}
+              to={"/EveryInteract/followers"}
+              amount={1815}
+            />
+            <StatInfo name={"Likes"} to={"/EveryInteract/likes"} amount={460} />
+            <StatInfo name={"Lists"} to={"/EveryInteract/lists"} amount={2} />
           </StatInfos>
         </div>
         <div className="col-xs-3">

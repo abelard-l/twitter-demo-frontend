@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Message from "./Message";
 import everyInteractionImg from "./icons/every-interaction-image.png";
 import avatarMiddle from "./icons/avatar-middle.png";
@@ -15,7 +16,7 @@ const Menu = styled.div`
   padding: 15px 10px 20px 10px;
 `;
 
-const MenuItem = styled.a`
+const MenuItem = styled(Link)`
   font-size: 18px;
   color: ${props => (props.active ? "#000000" : "#1da1f2")};
   margin-right: 25px;
@@ -32,7 +33,7 @@ const Messages = styled.section`
 
 const MessageBody = styled.div``;
 
-const BluedLink = styled.a`
+const BluedLink = styled(Link)`
   color: #1da1f2;
   text-decoration: none;
 
@@ -40,6 +41,8 @@ const BluedLink = styled.a`
     text-decoration: underline;
   }
 `;
+
+const BluedLinkOuter = BluedLink.withComponent("a");
 
 const EveryImg = styled.img`
   display: block;
@@ -84,11 +87,11 @@ const FutureImg = styled.img`
 export default () => (
   <Content>
     <Menu>
-      <MenuItem href="#" active={true}>
+      <MenuItem to="/EveryInteract/" active="true">
         Tweets
       </MenuItem>
-      <MenuItem href="#">Tweets & replies</MenuItem>
-      <MenuItem href="#">Media</MenuItem>
+      <MenuItem to="/EveryInteract/tweetsandreplies">Tweets & replies</MenuItem>
+      <MenuItem to="/EveryInteract/media">Media</MenuItem>
     </Menu>
     <Messages>
       <Message
@@ -103,10 +106,12 @@ export default () => (
       >
         <MessageBody>
           We’ve made some more resources for all you wonderful{" "}
-          <BluedLink href="#">#design</BluedLink> folk{" "}
-          <BluedLink href="#">everyinteraction.com/resources/</BluedLink>{" "}
-          <BluedLink href="#">#webdesign</BluedLink>{" "}
-          <BluedLink href="#">#UI</BluedLink>
+          <BluedLink to="/tags/design">#design</BluedLink> folk{" "}
+          <BluedLinkOuter href="http://www.everyinteraction.com/resources/">
+            everyinteraction.com/resources/
+          </BluedLinkOuter>{" "}
+          <BluedLink to="/tags/webdesign">#webdesign</BluedLink>{" "}
+          <BluedLink to="/tags/ui">#UI</BluedLink>
         </MessageBody>
         <EveryImg src={everyInteractionImg} />
       </Message>
@@ -121,7 +126,9 @@ export default () => (
       >
         <MessageBody>
           Our new website concept; Taking you from… @ Every Interaction{" "}
-          <BluedLink href="#">instagram.com/p/BNFGrfhBP3M/</BluedLink>
+          <BluedLinkOuter href="http://www.instagram.com/p/BNFGrfhBP3M/">
+            instagram.com/p/BNFGrfhBP3M/
+          </BluedLinkOuter>
         </MessageBody>
       </Message>
       <Message

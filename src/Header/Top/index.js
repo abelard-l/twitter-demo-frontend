@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import avatar from "./avatar.png";
 import iconHome from "./icon-home.svg";
 import iconMessages from "./icon-messages.svg";
@@ -27,10 +28,11 @@ const Menu = styled.div`
   box-sizing: border-box;
 `;
 
-const MenuItemWrap = styled.div`
+const MenuItemWrap = styled(NavLink)`
   align-items: center;
   display: flex;
-
+  color: #667580;
+  text-decoration: none;
   margin-right: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -43,17 +45,16 @@ const MenuItemWrap = styled.div`
   }
 `;
 
-const Text = styled.a`
+const Text = styled.span`
   margin-left: 6px;
   font-size: 13px;
   line-height: 20px;
-  color: #667580;
-  text-decoration: none;
 `;
 
-const MenuItem = ({ text, image }) => (
-  <MenuItemWrap>
-    <img alt={text} src={image} /> <Text href="#">{text}</Text>
+const MenuItem = ({ text, to, image }) => (
+  <MenuItemWrap exact to={to}>
+    <img alt={text} src={image} />
+    <Text>{text}</Text>
   </MenuItemWrap>
 );
 
@@ -113,10 +114,14 @@ export default () => (
     <div className="container">
       <div className="row middle-xs">
         <Menu>
-          <MenuItem text={"Home"} image={iconHome} />
-          <MenuItem text={"Moments"} image={iconMoments} />
-          <MenuItem text={"Notifications"} image={iconNotifications} />
-          <MenuItem text={"Messages"} image={iconMessages} />
+          <MenuItem text={"Home"} to={"/"} image={iconHome} />
+          <MenuItem text={"Moments"} to={"/moments"} image={iconMoments} />
+          <MenuItem
+            text={"Notifications"}
+            to={"/notifications"}
+            image={iconNotifications}
+          />
+          <MenuItem text={"Messages"} to={"/messages"} image={iconMessages} />
         </Menu>
         <Logotype>
           <TwitterLogo src={twitterLogo} />
