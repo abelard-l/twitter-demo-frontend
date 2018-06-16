@@ -9,7 +9,6 @@ import magnifier from "./magnifier.svg";
 import twitterLogo from "./twitter-logo.svg";
 
 const Top = styled.section`
-  padding: 6px 0px;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -25,24 +24,36 @@ const Menu = styled.div`
   justify-content: space-between;
   height: 100%;
   flex: 1;
+  box-sizing: border-box;
 `;
 
 const MenuItemWrap = styled.div`
   align-items: center;
   display: flex;
-  font-size: 13px;
-  color: #667580;
+
   margin-right: 20px;
   font-weight: bold;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-bottom: 4px solid #fff;
+  padding: 12px 0px;
+
+  &:hover {
+    border-bottom: 4px solid #1da1f2;
+  }
 `;
 
-const Text = styled.span`
+const Text = styled.a`
   margin-left: 6px;
+  font-size: 13px;
+  line-height: 20px;
+  color: #667580;
+  text-decoration: none;
 `;
 
 const MenuItem = ({ text, image }) => (
   <MenuItemWrap>
-    <img alt={text} src={image} /> <Text>{text}</Text>
+    <img alt={text} src={image} /> <Text href="#">{text}</Text>
   </MenuItemWrap>
 );
 
@@ -61,6 +72,7 @@ const SearchPanel = styled.div`
   align-items: center;
   justify-content: flex-end;
   flex: 1;
+  padding: 6px 0px;
 `;
 
 const Search = styled.input`
@@ -85,16 +97,21 @@ const Tweet = styled.button`
   text-align: center;
   color: #ffffff;
   background: #1da1f2;
+  font-weight: bold;
   border-radius: 100px;
   padding: 8px 24px;
   border: none;
   cursor: pointer;
+
+  &:hover {
+    background: #1990d9;
+  }
 `;
 
 export default () => (
   <Top>
     <div className="container">
-      <div className="row middle-xs between-xs">
+      <div className="row middle-xs">
         <Menu>
           <MenuItem text={"Home"} image={iconHome} />
           <MenuItem text={"Moments"} image={iconMoments} />

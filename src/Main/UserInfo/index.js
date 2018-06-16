@@ -7,6 +7,7 @@ import iconLocation from "./icon-location.svg";
 import tick from "./tick.png";
 
 const UserInfo = styled.div`
+  padding-right: 10px;
   position: relative;
 `;
 
@@ -45,7 +46,7 @@ const Description = styled.div`
   line-height: 20px;
   font-size: 14px;
   color: #14171a;
-  text-align: justify;
+  text-align: left;
   margin: 10px 0px 10px 0px;
 `;
 
@@ -101,6 +102,10 @@ const BlueButton = styled.button`
   padding: 12px 32px;
   border: none;
   cursor: pointer;
+
+  &:hover {
+    background: #1990d9;
+  }
 `;
 
 export default () => (

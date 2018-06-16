@@ -9,7 +9,8 @@ const ControlPanel = styled.div`
 `;
 
 const StatItem = styled.div`
-  border-bottom: ${props => (props.active ? "4px solid #1DA1F2" : "none")};
+  border-bottom: ${props =>
+    props.active ? "4px solid #1DA1F2" : "4px solid #fff"};
   display: inline-block;
   cursor: pointer;
   line-height: 21px;
@@ -17,17 +18,21 @@ const StatItem = styled.div`
   text-align: center;
   padding: 0 15px 5px 15px;
   color: #788a98;
+
+  &:hover {
+    border-bottom: 4px solid #1da1f2;
+  }
 `;
 
 const Text = styled.div`
   color: ${props => (props.active ? "#707E88" : "#788a98")};
+  padding: ${props => (props.active ? "3px 0px 0px 0px" : "0px 0px 3px 0px")};
 `;
 
 const Amount = styled.div`
   color: ${props => (props.active ? "#1DA1F2" : "#788a98")};
   font-size: 18px;
-  margin: ${props => (props.active ? "0px 0px 0px 0px" : "4px 0px 0px 0px")};
-  padding: ${props => (props.active ? "0px 0px 0px 0px" : "4px 0px 0px 0px")};
+  padding: ${props => (props.active ? "0px" : "0px 0px 0px 0px")};
   font-weight: bold;
 `;
 
@@ -62,7 +67,12 @@ const FollowBtn = styled.button`
   text-align: center;
   padding: 9px 27px;
   color: #1da1f2;
+  font-weight: bold;
   margin-right: 18px;
+
+  &:hover {
+    background: #e8f5fd;
+  }
 `;
 
 const MoreImg = styled.img``;
