@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import iconComments from "./icon-comments.svg";
-import iconPrivateMessage from "./icon-private-message.svg";
-import iconLike from "./icon-like.svg";
-import iconLikeRed from "./icon-like-red.svg";
-import iconPinned from "./icon-pinned.svg";
-import iconRetweet from "./icon-retweet.svg";
+import iconComments from "./icons/icon-comments.svg";
+import iconPrivateMessage from "./icons/icon-private-message.svg";
+import iconLike from "./icons/icon-like.svg";
+import iconLikeRed from "./icons/icon-like-red.svg";
+import iconPinned from "./icons/icon-pinned.svg";
+import iconRetweet from "./icons/icon-retweet.svg";
 
 const UserPost = styled.div`
   line-height: 30px;
@@ -76,6 +76,7 @@ const Stats = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 `;
 
 const Amount = styled.span`

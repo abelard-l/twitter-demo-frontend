@@ -5,8 +5,8 @@ import profileImage from "./profile-image.jpg";
 
 const Header = styled.header``;
 
-const ProfileInfo = styled.div`
-  margin-top: 5px;
+const ProfileInfo = styled.section`
+  padding-top: 45px;
   text-align: center;
 `;
 

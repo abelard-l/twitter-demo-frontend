@@ -9,7 +9,14 @@ import magnifier from "./magnifier.svg";
 import twitterLogo from "./twitter-logo.svg";
 
 const Top = styled.section`
-  padding-top: 5px;
+  padding: 6px 0px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 500;
+  background-color: #fff;
+  border-bottom: 1px solid #b0b8be;
 `;
 
 const Menu = styled.div`
@@ -17,6 +24,7 @@ const Menu = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  flex: 1;
 `;
 
 const MenuItemWrap = styled.div`
@@ -25,6 +33,7 @@ const MenuItemWrap = styled.div`
   font-size: 13px;
   color: #667580;
   margin-right: 20px;
+  font-weight: bold;
 `;
 
 const Text = styled.span`
@@ -42,6 +51,7 @@ const Logotype = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
+  flex: 1;
 `;
 
 const TwitterLogo = styled.img``;
@@ -50,6 +60,7 @@ const SearchPanel = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex: 1;
 `;
 
 const Search = styled.input`
@@ -75,7 +86,7 @@ const Tweet = styled.button`
   color: #ffffff;
   background: #1da1f2;
   border-radius: 100px;
-  padding: 8px 22px;
+  padding: 8px 24px;
   border: none;
   cursor: pointer;
 `;
@@ -90,11 +101,9 @@ export default () => (
           <MenuItem text={"Notifications"} image={iconNotifications} />
           <MenuItem text={"Messages"} image={iconMessages} />
         </Menu>
-
         <Logotype>
           <TwitterLogo src={twitterLogo} />
         </Logotype>
-
         <SearchPanel>
           <Search placeholder="Search Twitter" />
           <UserLogo src={avatar} />

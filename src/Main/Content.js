@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import Message from "./Message";
-import everyInteractionImg from "./every-interaction-image.png";
-import avatarMiddle from "./avatar-middle.png";
-import futureOfTheWeb from "./future-of-the-web.png";
+import everyInteractionImg from "./icons/every-interaction-image.png";
+import avatarMiddle from "./icons/avatar-middle.png";
+import futureOfTheWeb from "./icons/future-of-the-web.png";
 
 const Content = styled.div`
   background: #fff;

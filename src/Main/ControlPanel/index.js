@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import Sugar from "sugar";
+import { FormattedNumber } from "react-intl";
 import more from "./more.png";
 
 const ControlPanel = styled.div`
@@ -39,7 +39,9 @@ const StatInfos = styled.div`
 const StatInfo = ({ name, amount, active = false }) => (
   <StatItem active={active}>
     <Text active={active}>{name}</Text>
-    <Amount active={active}>{Sugar.Number.format(amount)}</Amount>
+    <Amount active={active}>
+      <FormattedNumber value={amount} />
+    </Amount>
   </StatItem>
 );
 
