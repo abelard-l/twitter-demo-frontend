@@ -86,23 +86,23 @@ export default () => (
         <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
             <StatInfo
-              name={"Tweets"}
-              to={"/EveryInteract/"}
+              name="Tweets"
+              to="/EveryInteract/"
               amount={8058}
               active="true"
             />
             <StatInfo
-              name={"Following"}
-              to={"/EveryInteract/following"}
+              name="Following"
+              to="/EveryInteract/following"
               amount={721}
             />
             <StatInfo
-              name={"Followers"}
-              to={"/EveryInteract/followers"}
+              name="Followers"
+              to="/EveryInteract/followers"
               amount={1815}
             />
-            <StatInfo name={"Likes"} to={"/EveryInteract/likes"} amount={460} />
-            <StatInfo name={"Lists"} to={"/EveryInteract/lists"} amount={2} />
+            <StatInfo name="Likes" to="/EveryInteract/likes" amount={460} />
+            <StatInfo name="Lists" to="/EveryInteract/lists" amount={2} />
           </StatInfos>
         </div>
         <div className="col-xs-3">

@@ -109,8 +109,8 @@ const RetweetBtn = styled.button`
 const LikeBtn = styled.button`
   background: ${props =>
     props.currentUserLiked
-      ? "url(" + iconLikeRed + ") no-repeat"
-      : "url(" + iconLike + ") no-repeat"};
+      ? `url(${iconLikeRed}) no-repeat`
+      : `url(${iconLike}) no-repeat`};
   border: 0;
   cursor: pointer;
   height: 14px;

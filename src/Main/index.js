@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ControlPanel from "./ControlPanel";
 import UserInfo from "./UserInfo";
-import Content from "./Content";
+import Tweets from "./Tweets";
 
 const Main = styled.main`
   background: #e6ecf0;
@@ -17,7 +17,7 @@ export default () => (
           <UserInfo />
         </div>
         <div className="col-xs-6">
-          <Content />
+          <Tweets />
         </div>
         <div className="col-xs-3" />
       </div>

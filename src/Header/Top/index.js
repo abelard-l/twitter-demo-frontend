@@ -28,7 +28,7 @@ const Menu = styled.div`
   box-sizing: border-box;
 `;
 
-const MenuItemWrap = styled(NavLink)`
+const MenuLink = styled(NavLink)`
   align-items: center;
   display: flex;
   color: #667580;
@@ -51,11 +51,11 @@ const Text = styled.span`
   line-height: 20px;
 `;
 
-const MenuItem = ({ text, to, image }) => (
-  <MenuItemWrap exact to={to}>
+const Navigation = ({ text, to, image }) => (
+  <MenuLink exact to={to}>
     <img alt={text} src={image} />
     <Text>{text}</Text>
-  </MenuItemWrap>
+  </MenuLink>
 );
 
 const Logotype = styled.div`
@@ -114,14 +114,14 @@ export default () => (
     <div className="container">
       <div className="row middle-xs">
         <Menu>
-          <MenuItem text={"Home"} to={"/"} image={iconHome} />
-          <MenuItem text={"Moments"} to={"/moments"} image={iconMoments} />
-          <MenuItem
-            text={"Notifications"}
-            to={"/notifications"}
+          <Navigation text="Home" to="/" image={iconHome} />
+          <Navigation text="Moments" to="/moments" image={iconMoments} />
+          <Navigation
+            text="Notifications"
+            to="/notifications"
             image={iconNotifications}
           />
-          <MenuItem text={"Messages"} to={"/messages"} image={iconMessages} />
+          <Navigation text="Messages" to="/messages" image={iconMessages} />
         </Menu>
         <Logotype>
           <TwitterLogo src={twitterLogo} />

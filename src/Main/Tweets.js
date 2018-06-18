@@ -97,9 +97,9 @@ export default () => (
       <Message
         pinned={true}
         avatar={avatarMiddle}
-        username={"Every Interaction"}
-        useradress={"@EveryInteract"}
-        dateinfo={"2 Mar 2015"}
+        username="Every Interaction"
+        useradress="@EveryInteract"
+        dateinfo="2 Mar 2015"
         retweets={17}
         likes={47}
         currentUserLiked={true}
@@ -117,9 +117,9 @@ export default () => (
       </Message>
       <Message
         avatar={avatarMiddle}
-        username={"Every Interaction"}
-        useradress={"@EveryInteract"}
-        dateinfo={"23h"}
+        username="Every Interaction"
+        useradress="@EveryInteract"
+        dateinfo="23h"
         comments={1}
         retweets={4}
         likes={2}
@@ -133,9 +133,9 @@ export default () => (
       </Message>
       <Message
         avatar={avatarMiddle}
-        username={"Every Interaction"}
-        useradress={"@EveryInteract"}
-        dateinfo={"Nov 18"}
+        username="Every Interaction"
+        useradress="@EveryInteract"
+        dateinfo="Nov 18"
       >
         <MessageBody>
           Variable web fonts are coming, and will open a world of opportunities
