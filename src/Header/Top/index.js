@@ -51,10 +51,10 @@ const Text = styled.span`
   line-height: 20px;
 `;
 
-const Navigation = ({ text, to, image }) => (
+const Navigation = ({ to, image, children }) => (
   <MenuLink exact to={to}>
-    <img alt={text} src={image} />
-    <Text>{text}</Text>
+    <img alt={children} src={image} />
+    <Text>{children}</Text>
   </MenuLink>
 );
 
@@ -114,14 +114,18 @@ export default () => (
     <div className="container">
       <div className="row middle-xs">
         <Menu>
-          <Navigation text="Home" to="/" image={iconHome} />
-          <Navigation text="Moments" to="/moments" image={iconMoments} />
-          <Navigation
-            text="Notifications"
-            to="/notifications"
-            image={iconNotifications}
-          />
-          <Navigation text="Messages" to="/messages" image={iconMessages} />
+          <Navigation to="/" image={iconHome}>
+            Home
+          </Navigation>
+          <Navigation to="/moments" image={iconMoments}>
+            Moments
+          </Navigation>
+          <Navigation to="/notifications" image={iconNotifications}>
+            Notifications
+          </Navigation>
+          <Navigation to="/messages" image={iconMessages}>
+            Messages
+          </Navigation>
         </Menu>
         <Logotype>
           <TwitterLogo src={twitterLogo} />

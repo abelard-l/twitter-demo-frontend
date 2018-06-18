@@ -43,9 +43,9 @@ const StatInfos = styled.div`
   align-items: center;
 `;
 
-const StatInfo = ({ name, to, amount, active }) => (
+const StatInfo = ({ to, amount, active, children }) => (
   <StatItem active={active} exact to={to}>
-    <Text active={active}>{name}</Text>
+    <Text active={active}>{children}</Text>
     <Amount active={active}>
       <FormattedNumber value={amount} />
     </Amount>
@@ -85,24 +85,21 @@ export default () => (
       <div className="row">
         <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
-            <StatInfo
-              name="Tweets"
-              to="/EveryInteract/"
-              amount={8058}
-              active="true"
-            />
-            <StatInfo
-              name="Following"
-              to="/EveryInteract/following"
-              amount={721}
-            />
-            <StatInfo
-              name="Followers"
-              to="/EveryInteract/followers"
-              amount={1815}
-            />
-            <StatInfo name="Likes" to="/EveryInteract/likes" amount={460} />
-            <StatInfo name="Lists" to="/EveryInteract/lists" amount={2} />
+            <StatInfo to="/EveryInteract/" amount={8058} active="true">
+              Tweets
+            </StatInfo>
+            <StatInfo to="/EveryInteract/following" amount={721}>
+              Following
+            </StatInfo>
+            <StatInfo to="/EveryInteract/followers" amount={1815}>
+              Followers
+            </StatInfo>
+            <StatInfo to="/EveryInteract/likes" amount={460}>
+              Likes
+            </StatInfo>
+            <StatInfo to="/EveryInteract/lists" amount={2}>
+              Lists
+            </StatInfo>
           </StatInfos>
         </div>
         <div className="col-xs-3">
