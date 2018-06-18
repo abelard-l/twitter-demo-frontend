@@ -6,7 +6,7 @@ import everyInteractionImg from "./icons/every-interaction-image.png";
 import avatarMiddle from "./icons/avatar-middle.png";
 import futureOfTheWeb from "./icons/future-of-the-web.png";
 
-const Content = styled.div`
+const Tweets = styled.div`
   background: #fff;
   margin-top: 3px;
 `;
@@ -16,7 +16,7 @@ const Menu = styled.div`
   padding: 15px 10px 20px 10px;
 `;
 
-const MenuItem = styled(Link)`
+const MenuLink = styled(Link)`
   font-size: 18px;
   color: ${props => (props.active ? "#000000" : "#1da1f2")};
   margin-right: 25px;
@@ -27,7 +27,7 @@ const MenuItem = styled(Link)`
   }
 `;
 
-const Messages = styled.section`
+const Cards = styled.section`
   background: #fff;
 `;
 
@@ -85,15 +85,15 @@ const FutureImg = styled.img`
 `;
 
 export default () => (
-  <Content>
+  <Tweets>
     <Menu>
-      <MenuItem to="/EveryInteract/" active="true">
+      <MenuLink to="/EveryInteract/" active="true">
         Tweets
-      </MenuItem>
-      <MenuItem to="/EveryInteract/tweetsandreplies">Tweets & replies</MenuItem>
-      <MenuItem to="/EveryInteract/media">Media</MenuItem>
+      </MenuLink>
+      <MenuLink to="/EveryInteract/tweetsandreplies">Tweets & replies</MenuLink>
+      <MenuLink to="/EveryInteract/media">Media</MenuLink>
     </Menu>
-    <Messages>
+    <Cards>
       <Message
         pinned={true}
         avatar={avatarMiddle}
@@ -154,6 +154,6 @@ export default () => (
           </SubMessageText>
         </SubMessage>
       </Message>
-    </Messages>
-  </Content>
+    </Cards>
+  </Tweets>
 );
