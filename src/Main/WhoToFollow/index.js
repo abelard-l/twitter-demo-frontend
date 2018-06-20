@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import BlueLinkSm from "../../UI/BlueLinkSm";
+import FollowBtn from "../../UI/FollowBtn";
 import iconOval from "../../UI/icons/oval.svg";
 import ai from "./ai.png";
 import creode from "./creode.png";
@@ -70,24 +71,6 @@ const SugAdress = styled.span`
 `;
 
 const IconOfficial = styled.img``;
-
-const FollowBtn = styled.button`
-  background: transparent;
-  border: 1px solid #1da1f2;
-  box-sizing: border-box;
-  border-radius: 100px;
-  cursor: pointer;
-  font-size: 14px;
-  text-align: center;
-  padding: 6px 22px;
-  color: #1da1f2;
-  font-weight: bold;
-  margin-right: 18px;
-
-  &:hover {
-    background: #e8f5fd;
-  }
-`;
 
 const CloseBtn = styled.button`
   background: url(${iconClose}) no-repeat;

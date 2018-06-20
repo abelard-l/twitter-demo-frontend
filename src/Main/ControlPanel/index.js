@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FormattedNumber } from "react-intl";
+import FollowBtn from "../../UI/FollowBtn";
 import more from "./more.png";
 
 const ControlPanel = styled.div`
@@ -54,28 +55,14 @@ const StatInfo = ({ to, amount, active, children }) => (
 );
 
 const FollowBlock = styled.div`
-  padding-top: 12px;
+  padding-top: 8px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 `;
 
-const FollowBtn = styled.button`
-  background: transparent;
-  border: 1px solid #1da1f2;
-  box-sizing: border-box;
-  border-radius: 100px;
-  cursor: pointer;
-  font-size: 14px;
-  text-align: center;
-  padding: 9px 27px;
-  color: #1da1f2;
-  font-weight: bold;
-  margin-right: 18px;
-
-  &:hover {
-    background: #e8f5fd;
-  }
+const FollowBtnControl = FollowBtn.extend`
+  padding: 9px 30px;
 `;
 
 const MoreImg = styled.img``;
@@ -105,7 +92,7 @@ export default () => (
         </div>
         <div className="col-xs-3">
           <FollowBlock>
-            <FollowBtn>Follow</FollowBtn>
+            <FollowBtnControl>Follow</FollowBtnControl>
             <MoreImg src={more} />
           </FollowBlock>
         </div>
