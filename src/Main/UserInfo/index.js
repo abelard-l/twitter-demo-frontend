@@ -4,7 +4,7 @@ import bigAvatar from "./big-avatar.png";
 import iconJoined from "./icon-joined.svg";
 import iconLink from "./icon-link.svg";
 import iconLocation from "./icon-location.svg";
-import tick from "./tick.png";
+import official from "../../UI/icons/official.png";
 
 const UserInfo = styled.div`
   padding-right: 10px;
@@ -113,7 +113,7 @@ export default () => (
   <UserInfo>
     <UserAvatar src={bigAvatar} />
     <UserName>
-      Every Interaction <TickImg src={tick} />
+      Every Interaction <TickImg src={official} />
     </UserName>
     <Following>
       @EveryInteract <SmallerGrayText>Follows you</SmallerGrayText>

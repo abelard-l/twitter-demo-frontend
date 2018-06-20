@@ -5,6 +5,7 @@ import UserInfo from "./UserInfo";
 import UserFollowers from "./UserFollowers";
 import UserPhotosAndVideos from "./UserPhotosAndVideos";
 import Tweets from "./Tweets";
+import WhoToFollow from "./WhoToFollow";
 import CountryTrends from "./CountryTrends";
 import Copyright from "./Copyright";
 
@@ -26,6 +27,7 @@ export default () => (
           <Tweets />
         </div>
         <div className="col-xs-3">
+          <WhoToFollow />
           <CountryTrends />
           <Copyright />
         </div>
