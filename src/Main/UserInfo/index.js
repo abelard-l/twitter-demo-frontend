@@ -9,6 +9,7 @@ import tick from "./tick.png";
 const UserInfo = styled.div`
   padding-right: 10px;
   position: relative;
+  margin-bottom: 19px;
 `;
 
 const UserAvatar = styled.img`

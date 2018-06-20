@@ -7,6 +7,7 @@ import more from "./more.png";
 const ControlPanel = styled.div`
   box-shadow: 0px 2px 2px #b0b8be;
   background: #fff;
+  margin-bottom: 9px;
 `;
 
 const StatItem = styled(NavLink)`
