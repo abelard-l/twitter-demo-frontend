@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FormattedNumber } from "react-intl";
 import BlueLink from "../UI/BlueLink";
 import iconOval from "../UI/icons/oval.svg";
 
@@ -51,7 +52,11 @@ const TrendTweetsCount = TrendDescription;
 const Trend = ({ to, tweets, description, children }) => (
   <TrendWrap>
     <TrendLink to={to}>{children}</TrendLink>
-    {tweets && <TrendTweetsCount>{tweets}</TrendTweetsCount>}
+    {tweets && (
+      <TrendTweetsCount>
+        <FormattedNumber value={tweets} /> Tweets
+      </TrendTweetsCount>
+    )}
     {description && <TrendDescription>{description}</TrendDescription>}
   </TrendWrap>
 );
@@ -71,19 +76,18 @@ export default () => (
     </Trend>
     <Trend
       to="/trends/BrexitAnniversary"
-      tweets={1000}
       description="It’s one year since the UK voted to leave the European
       Union"
     >
       #BrexitAnniversary
     </Trend>
-    <Trend to="/trends/HMSQueenElizabeth" description="1,036 Tweets">
+    <Trend to="/trends/HMSQueenElizabeth" tweets={1036}>
       HMS Queen Elizabeth
     </Trend>
-    <Trend to="/trends/JoeBudden" description="1,036 Tweets">
+    <Trend to="/trends/JoeBudden" tweets={1036}>
       Joe Budden
     </Trend>
-    <Trend to="/trends/Trident" description="6,136 Tweets">
+    <Trend to="/trends/Trident" tweets={6136}>
       Trident
     </Trend>
   </CountryTrends>
