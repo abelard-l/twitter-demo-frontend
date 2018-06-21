@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import BlueLinkMid from "../../UI/BlueLinkMid";
+import BlueLink from "../../UI/BlueLink";
 import iconFollowers from "./icon-followers.svg";
 import follower1 from "./follower-1.jpg";
 import follower2 from "./follower-2.jpg";
@@ -42,9 +42,7 @@ export default () => (
   <UserFollowers>
     <Title>
       <Icon src={iconFollowers} />
-      <BlueLinkMid to="/EveryInteract/Followers">
-        6 Followers you know
-      </BlueLinkMid>
+      <BlueLink to="/EveryInteract/Followers">6 Followers you know</BlueLink>
     </Title>
     <Followers>
       <Follower to="/NickBrooks" image={follower1} />

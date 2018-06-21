@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import BlueLinkSm from "../UI/BlueLinkSm";
+import BlueLink from "../UI/BlueLink";
 import iconOval from "../UI/icons/oval.svg";
 
 const CountryTrends = styled.div`
@@ -46,9 +46,12 @@ const TrendDescription = styled.div`
   line-height: 16px;
 `;
 
-const Trend = ({ to, description, children }) => (
+const TrendTweetsCount = TrendDescription;
+
+const Trend = ({ to, tweets, description, children }) => (
   <TrendWrap>
     <TrendLink to={to}>{children}</TrendLink>
+    {tweets && <TrendTweetsCount>{tweets}</TrendTweetsCount>}
     {description && <TrendDescription>{description}</TrendDescription>}
   </TrendWrap>
 );
@@ -58,26 +61,29 @@ export default () => (
     <Title>
       <Header>United Kingdom Trends</Header>
       <Dot src={iconOval} />
-      <BlueLinkSm to="/change">Change</BlueLinkSm>
+      <BlueLink fontSize="13px" to="/change">
+        Change
+      </BlueLink>
     </Title>
-    <Trend to="./trends/BringYourDogToWorkDay">#BringYourDogToWorkDay</Trend>
-    <Trend to="./trends/FridayFeeling" description="12.1K Tweets">
+    <Trend to="/trends/BringYourDogToWorkDay">#BringYourDogToWorkDay</Trend>
+    <Trend to="/trends/FridayFeeling" tweets={12100}>
       #FridayFeeling
     </Trend>
     <Trend
-      to="./trends/BrexitAnniversary"
+      to="/trends/BrexitAnniversary"
+      tweets={1000}
       description="It’s one year since the UK voted to leave the European
       Union"
     >
       #BrexitAnniversary
     </Trend>
-    <Trend to="./trends/HMSQueenElizabeth" description="1,036 Tweets">
+    <Trend to="/trends/HMSQueenElizabeth" description="1,036 Tweets">
       HMS Queen Elizabeth
     </Trend>
-    <Trend to="./trends/JoeBudden" description="1,036 Tweets">
+    <Trend to="/trends/JoeBudden" description="1,036 Tweets">
       Joe Budden
     </Trend>
-    <Trend to="./trends/Trident" description="6,136 Tweets">
+    <Trend to="/trends/Trident" description="6,136 Tweets">
       Trident
     </Trend>
   </CountryTrends>

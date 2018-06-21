@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import BlueLinkMid from "../../UI/BlueLinkMid";
+import BlueLink from "../../UI/BlueLink";
 import iconPhotosVideos from "./icon-photos-videos.svg";
 import photosVideos1 from "./photos-videos-1.jpg";
 import photosVideos2 from "./photos-videos-2.jpg";
@@ -40,9 +40,7 @@ export default () => (
   <UserPhotosAndVideos>
     <Title>
       <Icon src={iconPhotosVideos} />
-      <BlueLinkMid to={"/EveryInteract/media/"}>
-        522 Photos and videos
-      </BlueLinkMid>
+      <BlueLink to={"/EveryInteract/media/"}>522 Photos and videos</BlueLink>
     </Title>
     <PhotosVideos>
       <PhotoVideo to="/EveryInteract/photos/111" image={photosVideos1} />

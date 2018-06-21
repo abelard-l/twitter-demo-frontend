@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BlueLinkSm from "../../UI/BlueLinkSm";
+import BlueLink from "../../UI/BlueLink";
 import FollowBtn from "../../UI/FollowBtn";
 import iconOval from "../../UI/icons/oval.svg";
 import ai from "./ai.png";
@@ -114,9 +114,13 @@ export default () => (
     <Title>
       <Header>Who To Follow</Header>
       <Dot src={iconOval} />
-      <BlueLinkSm to="/refresh">Refresh</BlueLinkSm>
+      <BlueLink fontSize="13px" to="/refresh">
+        Refresh
+      </BlueLink>
       <Dot src={iconOval} />
-      <BlueLinkSm to="/viewall">View all</BlueLinkSm>
+      <BlueLink fontSize="13px" to="/viewall">
+        View all
+      </BlueLink>
     </Title>
     <Suggestions>
       <Suggestion image={ai} adress="@appleinsider">
@@ -131,7 +135,9 @@ export default () => (
     </Suggestions>
     <FindPeople>
       <IconPeople src={iconPeople} />
-      <BlueLinkSm to="/find">Find people you know</BlueLinkSm>
+      <BlueLink fontSize="13px" to="/find">
+        Find people you know
+      </BlueLink>
     </FindPeople>
   </WhoToFollow>
 );
