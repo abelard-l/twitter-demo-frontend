@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import TextBtn from "../../UI/TextBtn";
 import BlueLink from "../../UI/BlueLink";
 import FollowBtn from "../../UI/FollowBtn";
 import iconOval from "../../UI/icons/oval.svg";
@@ -114,9 +115,7 @@ export default () => (
     <Title>
       <Header>Who To Follow</Header>
       <Dot src={iconOval} />
-      <BlueLink fontSize="13px" to="/refresh">
-        Refresh
-      </BlueLink>
+      <TextBtn>Refresh</TextBtn>
       <Dot src={iconOval} />
       <BlueLink fontSize="13px" to="/viewall">
         View all

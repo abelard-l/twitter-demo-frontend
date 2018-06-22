@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FormattedNumber } from "react-intl";
+import TextBtn from "../UI/TextBtn";
 import BlueLink from "../UI/BlueLink";
 import iconOval from "../UI/icons/oval.svg";
 
@@ -66,9 +67,7 @@ export default () => (
     <Title>
       <Header>United Kingdom Trends</Header>
       <Dot src={iconOval} />
-      <BlueLink fontSize="13px" to="/change">
-        Change
-      </BlueLink>
+      <TextBtn>Change</TextBtn>
     </Title>
     <Trend to="/trends/BringYourDogToWorkDay">#BringYourDogToWorkDay</Trend>
     <Trend to="/trends/FridayFeeling" tweets={12100}>
