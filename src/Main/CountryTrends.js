@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FormattedNumber } from "react-intl";
 import TextBtn from "../UI/TextBtn";
-import BlueLink from "../UI/BlueLink";
 import iconOval from "../UI/icons/oval.svg";
 
 const CountryTrends = styled.div`
