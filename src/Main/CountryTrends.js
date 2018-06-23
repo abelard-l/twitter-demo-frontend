@@ -41,23 +41,21 @@ const TrendLink = styled(Link)`
   }
 `;
 
-const TrendDescription = styled.div`
+const SubTrendText = styled.div`
   color: #718290;
   font-size: 12px;
   line-height: 16px;
 `;
 
-const TrendTweetsCount = TrendDescription;
-
-const Trend = ({ to, tweets, description, children }) => (
+const Trend = ({ to, count, description, children }) => (
   <TrendWrap>
     <TrendLink to={to}>{children}</TrendLink>
-    {tweets && (
-      <TrendTweetsCount>
-        <FormattedNumber value={tweets} /> Tweets
-      </TrendTweetsCount>
+    {count && (
+      <SubTrendText>
+        <FormattedNumber value={count} /> Tweets
+      </SubTrendText>
     )}
-    {description && <TrendDescription>{description}</TrendDescription>}
+    {description && <SubTrendText>{description}</SubTrendText>}
   </TrendWrap>
 );
 
@@ -69,7 +67,7 @@ export default () => (
       <TextBtn>Change</TextBtn>
     </Title>
     <Trend to="/trends/BringYourDogToWorkDay">#BringYourDogToWorkDay</Trend>
-    <Trend to="/trends/FridayFeeling" tweets={12100}>
+    <Trend to="/trends/FridayFeeling" count={12100}>
       #FridayFeeling
     </Trend>
     <Trend
@@ -79,13 +77,13 @@ export default () => (
     >
       #BrexitAnniversary
     </Trend>
-    <Trend to="/trends/HMSQueenElizabeth" tweets={1036}>
+    <Trend to="/trends/HMSQueenElizabeth" count={1036}>
       HMS Queen Elizabeth
     </Trend>
-    <Trend to="/trends/JoeBudden" tweets={1036}>
+    <Trend to="/trends/JoeBudden" count={1036}>
       Joe Budden
     </Trend>
-    <Trend to="/trends/Trident" tweets={6136}>
+    <Trend to="/trends/Trident" count={6136}>
       Trident
     </Trend>
   </CountryTrends>
