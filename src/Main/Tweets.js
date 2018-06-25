@@ -8,7 +8,6 @@ import futureOfTheWeb from "./icons/future-of-the-web.png";
 
 const Tweets = styled.div`
   background: #fff;
-  margin-top: 3px;
 `;
 
 const Menu = styled.div`
