@@ -4,9 +4,7 @@ import TextBtn from "../../UI/TextBtn";
 import BlueLink from "../../UI/BlueLink";
 import FollowBtn from "../../UI/FollowBtn";
 import iconOval from "../../UI/icons/oval.svg";
-import ai from "./ai.png";
-import creode from "./creode.png";
-import e from "./e.png";
+import { suggestions } from "../data";
 import iconOfficial from "../../UI/icons/official.png";
 import iconClose from "./icon-close.svg";
 import iconPeople from "./icon-people.svg";
@@ -83,14 +81,14 @@ const CloseBtn = styled.button`
 
 const Suggestions = styled.div``;
 
-const Suggestion = ({ image, adress, official, children }) => (
+const Suggestion = ({ image, adress, official, name }) => (
   <SugWrap>
     <SugImgWrap>
       <SugImg src={image} />
     </SugImgWrap>
     <SugMain>
       <SugTitle>
-        <SugName>{children}</SugName>
+        <SugName>{name}</SugName>
         {official && <IconOfficial src={iconOfficial} />}
         <SugAdress>{adress}</SugAdress>
       </SugTitle>
@@ -122,15 +120,7 @@ export default () => (
       </BlueLink>
     </Title>
     <Suggestions>
-      <Suggestion image={ai} adress="@appleinsider">
-        AppleInsider
-      </Suggestion>
-      <Suggestion image={creode} adress="@Creode" official={true}>
-        Creode
-      </Suggestion>
-      <Suggestion image={e} adress="@EpiphanySearch">
-        Epiphany Search
-      </Suggestion>
+      {suggestions.map(suggestion => <Suggestion {...suggestion} />)}
     </Suggestions>
     <FindPeople>
       <IconPeople src={iconPeople} />

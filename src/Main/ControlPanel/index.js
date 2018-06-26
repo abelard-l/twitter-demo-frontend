@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FormattedNumber } from "react-intl";
+import { statInfos } from "../data";
 import FollowBtn from "../../UI/FollowBtn";
 import more from "./more.png";
 
@@ -45,9 +46,9 @@ const StatInfos = styled.div`
   align-items: center;
 `;
 
-const StatInfo = ({ to, amount, active, children }) => (
+const StatInfo = ({ to, amount, active, name }) => (
   <StatItem active={active} exact to={to}>
-    <Text active={active}>{children}</Text>
+    <Text active={active}>{name}</Text>
     <Amount active={active}>
       <FormattedNumber value={amount} />
     </Amount>
@@ -73,21 +74,7 @@ export default () => (
       <div className="row">
         <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
-            <StatInfo to="/EveryInteract/" amount={8058} active="true">
-              Tweets
-            </StatInfo>
-            <StatInfo to="/EveryInteract/following" amount={721}>
-              Following
-            </StatInfo>
-            <StatInfo to="/EveryInteract/followers" amount={1815}>
-              Followers
-            </StatInfo>
-            <StatInfo to="/EveryInteract/likes" amount={460}>
-              Likes
-            </StatInfo>
-            <StatInfo to="/EveryInteract/lists" amount={2}>
-              Lists
-            </StatInfo>
+            {statInfos.map(statInfo => <StatInfo {...statInfo} />)}
           </StatInfos>
         </div>
         <div className="col-xs-3">
