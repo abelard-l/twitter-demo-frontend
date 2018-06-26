@@ -12,7 +12,9 @@ const ControlPanel = styled.div`
   margin-bottom: 9px;
 `;
 
-const StatItem = styled(NavLink)`
+const StatLink = styled(NavLink)``;
+
+const StatItem = styled.div`
   border-bottom: ${props =>
     props.active ? "4px solid #1DA1F2" : "4px solid #fff"};
   display: inline-block;
@@ -47,12 +49,14 @@ const StatInfos = styled.div`
 `;
 
 const StatInfo = ({ to, amount, active, name }) => (
-  <StatItem active={active} exact to={to}>
-    <Text active={active}>{name}</Text>
-    <Amount active={active}>
-      <FormattedNumber value={amount} />
-    </Amount>
-  </StatItem>
+  <StatLink exact to={to}>
+    <StatItem active={active}>
+      <Text active={active}>{name}</Text>
+      <Amount active={active}>
+        <FormattedNumber value={amount} />
+      </Amount>
+    </StatItem>
+  </StatLink>
 );
 
 const FollowBlock = styled.div`
