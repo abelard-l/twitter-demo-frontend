@@ -4,7 +4,7 @@ import TextBtn from "../../UI/TextBtn";
 import BlueLink from "../../UI/BlueLink";
 import FollowBtn from "../../UI/FollowBtn";
 import iconOval from "../../UI/icons/oval.svg";
-import { suggestions } from "../data";
+import { suggestions } from "../../UI/data";
 import iconOfficial from "../../UI/icons/official.png";
 import iconClose from "./icon-close.svg";
 import iconPeople from "./icon-people.svg";
@@ -120,7 +120,15 @@ export default () => (
       </BlueLink>
     </Title>
     <Suggestions>
-      {suggestions.map(suggestion => <Suggestion {...suggestion} />)}
+      {suggestions.map(({ id, image, adress, official, name }) => (
+        <Suggestion
+          key={id}
+          image={image}
+          adress={adress}
+          official={official}
+          name={name}
+        />
+      ))}
     </Suggestions>
     <FindPeople>
       <IconPeople src={iconPeople} />

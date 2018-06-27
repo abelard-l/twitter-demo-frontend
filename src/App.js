@@ -19,7 +19,7 @@ class App extends Component {
             <Helmet title="EveryInteract (@EveryInteract) | Twitter" />
             <Header />
             <Switch>
-              <Route exact path="/EveryInteract" component={Main} />
+              <Route path="/:userAdress" component={Main} />
               <Redirect exact from="/" to="/EveryInteract" />
             </Switch>
           </React.Fragment>

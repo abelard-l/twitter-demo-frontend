@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FormattedNumber } from "react-intl";
-import { countryTrends } from "./data";
+import { countryTrends } from "../UI/data";
 import TextBtn from "../UI/TextBtn";
 import iconOval from "../UI/icons/oval.svg";
 
@@ -67,6 +67,14 @@ export default () => (
       <Dot src={iconOval} />
       <TextBtn>Change</TextBtn>
     </Title>
-    {countryTrends.map(trend => <Trend {...trend} />)}
+    {countryTrends.map(({ id, to, count, description, name }) => (
+      <Trend
+        key={id}
+        to={to}
+        count={count}
+        description={description}
+        name={name}
+      />
+    ))}
   </CountryTrends>
 );

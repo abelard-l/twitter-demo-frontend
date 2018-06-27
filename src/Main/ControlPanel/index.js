@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FormattedNumber } from "react-intl";
-import { statInfos } from "../data";
+import { statInfos } from "../../UI/data";
 import FollowBtn from "../../UI/FollowBtn";
 import more from "./more.png";
 
@@ -48,8 +48,8 @@ const StatInfos = styled.div`
   align-items: center;
 `;
 
-const StatInfo = ({ to, amount, active, name }) => (
-  <StatLink exact to={to}>
+const StatInfo = ({ to, amount, active, name, userAdress }) => (
+  <StatLink exact to={`/${userAdress}/${to}`}>
     <StatItem active={active}>
       <Text active={active}>{name}</Text>
       <Amount active={active}>
@@ -72,13 +72,22 @@ const FollowBtnControl = FollowBtn.extend`
 
 const MoreImg = styled.img``;
 
-export default () => (
+export default ({ userAdress }) => (
   <ControlPanel>
     <div className="container">
       <div className="row">
         <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
-            {statInfos.map(statInfo => <StatInfo {...statInfo} />)}
+            {statInfos.map(({ id, to, amount, active, name }) => (
+              <StatInfo
+                userAdress={userAdress}
+                key={id}
+                to={to}
+                amount={amount}
+                active={active}
+                name={name}
+              />
+            ))}
           </StatInfos>
         </div>
         <div className="col-xs-3">
