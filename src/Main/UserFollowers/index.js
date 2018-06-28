@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import BlueLink from "../../UI/BlueLink";
-import iconFollowers from "./icon-followers.svg";
-import follower1 from "./follower-1.jpg";
-import follower2 from "./follower-2.jpg";
-import follower3 from "./follower-3.jpg";
-import follower4 from "./follower-4.jpg";
-import follower5 from "./follower-5.jpg";
-import follower6 from "./follower-6.jpg";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import BlueLink from '../../UI/BlueLink';
+import iconFollowers from './icon-followers.svg';
+import follower1 from './follower-1.jpg';
+import follower2 from './follower-2.jpg';
+import follower3 from './follower-3.jpg';
+import follower4 from './follower-4.jpg';
+import follower5 from './follower-5.jpg';
+import follower6 from './follower-6.jpg';
 
 const UserFollowers = styled.div`
   margin-bottom: 31px;
@@ -42,7 +42,9 @@ export default () => (
   <UserFollowers>
     <Title>
       <Icon src={iconFollowers} />
-      <BlueLink to="/EveryInteract/Followers">6 Followers you know</BlueLink>
+      <BlueLink to="/EveryInteract/Followers">
+6 Followers you know
+      </BlueLink>
     </Title>
     <Followers>
       <Follower to="/NickBrooks" image={follower1} />

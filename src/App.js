@@ -1,32 +1,23 @@
-import React, { Component } from "react";
-import Header from "./Header";
-import Main from "./Main";
-import { IntlProvider } from "react-intl";
+import React from 'react';
+import { IntlProvider } from 'react-intl';
 import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from "react-router-dom";
-import Helmet from "react-helmet";
+  BrowserRouter as Router, Route, Redirect, Switch,
+} from 'react-router-dom';
+import Helmet from 'react-helmet';
+import Header from './Header';
+import Main from './Main';
 
-class App extends Component {
-  render() {
-    return (
-      <IntlProvider locale="en">
-        <Router>
-          <React.Fragment>
-            <Helmet title="EveryInteract (@EveryInteract) | Twitter" />
-            <Header />
-            <Switch>
-              <Route path="/:userAdress" component={Main} />
-              <Redirect exact from="/" to="/EveryInteract" />
-            </Switch>
-          </React.Fragment>
-        </Router>
-      </IntlProvider>
-    );
-  }
-}
-
-export default App;
+export default () => (
+  <IntlProvider locale="en">
+    <Router>
+      <React.Fragment>
+        <Helmet title="EveryInteract (@EveryInteract) | Twitter" />
+        <Header />
+        <Switch>
+          <Route path="/:userAdress" component={Main} />
+          <Redirect exact from="/" to="/EveryInteract" />
+        </Switch>
+      </React.Fragment>
+    </Router>
+  </IntlProvider>
+);

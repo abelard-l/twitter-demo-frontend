@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { FormattedNumber } from "react-intl";
-import { statInfos } from "../../UI/data";
-import FollowBtn from "../../UI/FollowBtn";
-import more from "./more.png";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { FormattedNumber } from 'react-intl';
+import { statInfos } from '../../UI/data';
+import FollowBtn from '../../UI/FollowBtn';
+import more from './more.png';
 
 const ControlPanel = styled.div`
   box-shadow: 0px 2px 2px #b0b8be;
@@ -15,8 +15,7 @@ const ControlPanel = styled.div`
 const StatLink = styled(NavLink)``;
 
 const StatItem = styled.div`
-  border-bottom: ${props =>
-    props.active ? "4px solid #1DA1F2" : "4px solid #fff"};
+  border-bottom: ${({ active }) => (active ? '4px solid #1DA1F2' : '4px solid #fff')};
   display: inline-block;
   cursor: pointer;
   line-height: 21px;
@@ -32,14 +31,14 @@ const StatItem = styled.div`
 `;
 
 const Text = styled.div`
-  color: ${props => (props.active ? "#707E88" : "#788a98")};
-  padding: ${props => (props.active ? "3px 0px 0px 0px" : "0px 0px 3px 0px")};
+  color: ${({ active }) => (active ? '#707E88' : '#788a98')};
+  padding: ${({ active }) => (active ? '3px 0px 0px 0px' : '0px 0px 3px 0px')};
 `;
 
 const Amount = styled.div`
-  color: ${props => (props.active ? "#1DA1F2" : "#788a98")};
+  color: ${({ active }) => (active ? '#1DA1F2' : '#788a98')};
   font-size: 18px;
-  padding: ${props => (props.active ? "0px" : "0px 0px 0px 0px")};
+  padding: ${({ active }) => (active ? '0px' : '0px 0px 0px 0px')};
   font-weight: bold;
 `;
 
@@ -48,10 +47,14 @@ const StatInfos = styled.div`
   align-items: center;
 `;
 
-const StatInfo = ({ to, amount, active, name, userAdress }) => (
+const StatInfo = ({
+  to, amount, active, name, userAdress,
+}) => (
   <StatLink exact to={`/${userAdress}/${to}`}>
     <StatItem active={active}>
-      <Text active={active}>{name}</Text>
+      <Text active={active}>
+        {name}
+      </Text>
       <Amount active={active}>
         <FormattedNumber value={amount} />
       </Amount>
@@ -78,7 +81,9 @@ export default ({ userAdress }) => (
       <div className="row">
         <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
-            {statInfos.map(({ id, to, amount, active, name }) => (
+            {statInfos.map(({
+              id, to, amount, active, name,
+            }) => (
               <StatInfo
                 userAdress={userAdress}
                 key={id}
@@ -92,7 +97,9 @@ export default ({ userAdress }) => (
         </div>
         <div className="col-xs-3">
           <FollowBlock>
-            <FollowBtnControl>Follow</FollowBtnControl>
+            <FollowBtnControl>
+Follow
+            </FollowBtnControl>
             <MoreImg src={more} />
           </FollowBlock>
         </div>

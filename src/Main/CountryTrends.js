@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { FormattedNumber } from "react-intl";
-import { countryTrends } from "../UI/data";
-import TextBtn from "../UI/TextBtn";
-import iconOval from "../UI/icons/oval.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { FormattedNumber } from 'react-intl';
+import { countryTrends } from '../UI/data';
+import TextBtn from '../UI/TextBtn';
+import iconOval from '../UI/icons/oval.svg';
 
 const CountryTrends = styled.div`
   background: #fff;
@@ -48,33 +48,43 @@ const SubTrendText = styled.div`
   line-height: 16px;
 `;
 
-const Trend = ({ to, count, description, name }) => (
+const Trend = ({
+  to, count, description, name,
+}) => (
   <TrendWrap>
-    <TrendLink to={to}>{name}</TrendLink>
+    <TrendLink to={to}>
+      {name}
+    </TrendLink>
     {count && (
       <SubTrendText>
-        <FormattedNumber value={count} /> Tweets
+        <FormattedNumber value={count} />
+        {' '}
+Tweets
       </SubTrendText>
     )}
-    {description && <SubTrendText>{description}</SubTrendText>}
+    {description && (
+    <SubTrendText>
+      {description}
+    </SubTrendText>
+    )}
   </TrendWrap>
 );
 
 export default () => (
   <CountryTrends>
     <Title>
-      <Header>United Kingdom Trends</Header>
+      <Header>
+United Kingdom Trends
+      </Header>
       <Dot src={iconOval} />
-      <TextBtn>Change</TextBtn>
+      <TextBtn>
+Change
+      </TextBtn>
     </Title>
-    {countryTrends.map(({ id, to, count, description, name }) => (
-      <Trend
-        key={id}
-        to={to}
-        count={count}
-        description={description}
-        name={name}
-      />
+    {countryTrends.map(({
+      id, to, count, description, name,
+    }) => (
+      <Trend key={id} to={to} count={count} description={description} name={name} />
     ))}
   </CountryTrends>
 );

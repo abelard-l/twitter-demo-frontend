@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import iconComments from "./icons/icon-comments.svg";
-import iconPrivateMessage from "./icons/icon-private-message.svg";
-import iconLike from "./icons/icon-like.svg";
-import iconLikeRed from "./icons/icon-like-red.svg";
-import iconPinned from "./icons/icon-pinned.svg";
-import iconRetweet from "./icons/icon-retweet.svg";
+import React from 'react';
+import styled from 'styled-components';
+import iconComments from './icons/icon-comments.svg';
+import iconPrivateMessage from './icons/icon-private-message.svg';
+import iconLike from './icons/icon-like.svg';
+import iconLikeRed from './icons/icon-like-red.svg';
+import iconPinned from './icons/icon-pinned.svg';
+import iconRetweet from './icons/icon-retweet.svg';
 
 const UserPost = styled.div`
   line-height: 30px;
@@ -80,7 +80,7 @@ const Stats = styled.div`
 `;
 
 const Amount = styled.span`
-  color: ${props => (props.currentUserLiked ? "#E2264D" : "inherit")};
+  color: ${({ currentUserLiked }) => (currentUserLiked ? '#E2264D' : 'inherit')};
   margin-left: 5px;
 `;
 
@@ -107,10 +107,7 @@ const RetweetBtn = styled.button`
 `;
 
 const LikeBtn = styled.button`
-  background: ${props =>
-    props.currentUserLiked
-      ? `url(${iconLikeRed}) no-repeat`
-      : `url(${iconLike}) no-repeat`};
+  background: ${({ currentUserLiked }) => (currentUserLiked ? `url(${iconLikeRed}) no-repeat` : `url(${iconLike}) no-repeat`)};
   border: 0;
   cursor: pointer;
   height: 14px;
@@ -135,13 +132,15 @@ export default ({
   retweets,
   likes,
   currentUserLiked = false,
-  children
+  children,
 }) => (
   <UserPost>
     {pinned && (
       <Pinned>
         <Icon src={iconPinned} />
-        <PinnedText>Pinned Tweet</PinnedText>
+        <PinnedText>
+Pinned Tweet
+        </PinnedText>
       </Pinned>
     )}
     <Main>
@@ -150,24 +149,44 @@ export default ({
       </Avatar>
       <MessageAndStat>
         <UserInfo>
-          <UserName>{username}</UserName>
-          <UserAdress>{useradress}</UserAdress>
-          <DateInfo> • {dateinfo}</DateInfo>
+          <UserName>
+            {username}
+          </UserName>
+          <UserAdress>
+            {useradress}
+          </UserAdress>
+          <DateInfo>
+            {' '}
+            •
+            {dateinfo}
+          </DateInfo>
         </UserInfo>
-        <Message>{children}</Message>
+        <Message>
+          {children}
+        </Message>
         <Stats>
           <ActionAndStat>
             <CommentBtn />
-            {comments && <Amount>{comments}</Amount>}
+            {comments && (
+            <Amount>
+              {comments}
+            </Amount>
+            )}
           </ActionAndStat>
           <ActionAndStat>
             <RetweetBtn />
-            {retweets && <Amount>{retweets}</Amount>}
+            {retweets && (
+            <Amount>
+              {retweets}
+            </Amount>
+            )}
           </ActionAndStat>
           <ActionAndStat>
             <LikeBtn currentUserLiked={currentUserLiked} />
             {likes && (
-              <Amount currentUserLiked={currentUserLiked}>{likes}</Amount>
+            <Amount currentUserLiked={currentUserLiked}>
+              {likes}
+            </Amount>
             )}
           </ActionAndStat>
           <PrivateMessageBtn />

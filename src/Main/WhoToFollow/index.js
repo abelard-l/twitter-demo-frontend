@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import TextBtn from "../../UI/TextBtn";
-import BlueLink from "../../UI/BlueLink";
-import FollowBtn from "../../UI/FollowBtn";
-import iconOval from "../../UI/icons/oval.svg";
-import { suggestions } from "../../UI/data";
-import iconOfficial from "../../UI/icons/official.png";
-import iconClose from "./icon-close.svg";
-import iconPeople from "./icon-people.svg";
+import React from 'react';
+import styled from 'styled-components';
+import TextBtn from '../../UI/TextBtn';
+import BlueLink from '../../UI/BlueLink';
+import FollowBtn from '../../UI/FollowBtn';
+import iconOval from '../../UI/icons/oval.svg';
+import { suggestions } from '../../UI/data';
+import iconOfficial from '../../UI/icons/official.png';
+import iconClose from './icon-close.svg';
+import iconPeople from './icon-people.svg';
 
 const WhoToFollow = styled.div`
   background: #fff;
@@ -81,18 +81,26 @@ const CloseBtn = styled.button`
 
 const Suggestions = styled.div``;
 
-const Suggestion = ({ image, adress, official, name }) => (
+const Suggestion = ({
+  image, adress, official, name,
+}) => (
   <SugWrap>
     <SugImgWrap>
       <SugImg src={image} />
     </SugImgWrap>
     <SugMain>
       <SugTitle>
-        <SugName>{name}</SugName>
+        <SugName>
+          {name}
+        </SugName>
         {official && <IconOfficial src={iconOfficial} />}
-        <SugAdress>{adress}</SugAdress>
+        <SugAdress>
+          {adress}
+        </SugAdress>
       </SugTitle>
-      <FollowBtn>Follow</FollowBtn>
+      <FollowBtn>
+Follow
+      </FollowBtn>
     </SugMain>
     <CloseBtn />
   </SugWrap>
@@ -111,23 +119,23 @@ const IconPeople = styled.img`
 export default () => (
   <WhoToFollow>
     <Title>
-      <Header>Who To Follow</Header>
+      <Header>
+Who To Follow
+      </Header>
       <Dot src={iconOval} />
-      <TextBtn>Refresh</TextBtn>
+      <TextBtn>
+Refresh
+      </TextBtn>
       <Dot src={iconOval} />
       <BlueLink fontSize="13px" to="/viewall">
         View all
       </BlueLink>
     </Title>
     <Suggestions>
-      {suggestions.map(({ id, image, adress, official, name }) => (
-        <Suggestion
-          key={id}
-          image={image}
-          adress={adress}
-          official={official}
-          name={name}
-        />
+      {suggestions.map(({
+        id, image, adress, official, name,
+      }) => (
+        <Suggestion key={id} image={image} adress={adress} official={official} name={name} />
       ))}
     </Suggestions>
     <FindPeople>

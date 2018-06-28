@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Top from "./Top";
-import profileImage from "./profile-image.jpg";
+import React from 'react';
+import styled from 'styled-components';
+import Top from './Top';
+import profileImage from './profile-image.jpg';
 
 const Header = styled.header``;
 

@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import avatar from "./avatar.png";
-import iconHome from "./icon-home.svg";
-import iconMessages from "./icon-messages.svg";
-import iconMoments from "./icon-moments.svg";
-import iconNotifications from "./icon-notifications.svg";
-import magnifier from "./magnifier.svg";
-import twitterLogo from "./twitter-logo.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import avatar from './avatar.png';
+import iconHome from './icon-home.svg';
+import iconMessages from './icon-messages.svg';
+import iconMoments from './icon-moments.svg';
+import iconNotifications from './icon-notifications.svg';
+import magnifier from './magnifier.svg';
+import twitterLogo from './twitter-logo.svg';
 
 const Top = styled.section`
   position: fixed;
@@ -54,7 +54,9 @@ const Text = styled.span`
 const Navigation = ({ to, image, children }) => (
   <MenuLink exact to={to}>
     <img alt={children} src={image} />
-    <Text>{children}</Text>
+    <Text>
+      {children}
+    </Text>
   </MenuLink>
 );
 
@@ -133,7 +135,9 @@ export default () => (
         <SearchPanel>
           <Search placeholder="Search Twitter" />
           <UserLogo src={avatar} />
-          <Tweet>Tweet</Tweet>
+          <Tweet>
+Tweet
+          </Tweet>
         </SearchPanel>
       </div>
     </div>

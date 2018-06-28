@@ -1,23 +1,24 @@
-import React from "react";
-import styled from "styled-components";
-import ControlPanel from "./ControlPanel";
-import UserInfo from "./UserInfo";
-import UserFollowers from "./UserFollowers";
-import UserPhotosAndVideos from "./UserPhotosAndVideos";
-import Tweets from "./Tweets";
-import WhoToFollow from "./WhoToFollow";
-import CountryTrends from "./CountryTrends";
-import Copyright from "./Copyright";
-import { users } from "../UI/data";
+import React from 'react';
+import styled from 'styled-components';
+import ControlPanel from './ControlPanel';
+import UserInfo from './UserInfo';
+import UserFollowers from './UserFollowers';
+import UserPhotosAndVideos from './UserPhotosAndVideos';
+import Tweets from './Tweets';
+import WhoToFollow from './WhoToFollow';
+import CountryTrends from './CountryTrends';
+import Copyright from './Copyright';
+import { users } from '../UI/data';
 
 const Main = styled.main`
   background: #e6ecf0;
 `;
 
 export default ({ match }) => {
-  const userAdress = match.params.userAdress;
-  if (users.filter(user => user.useradress === userAdress).length === 0)
+  const { userAdress } = match.params;
+  if (users.filter(user => user.useradress === userAdress).length === 0) {
     return null;
+  }
 
   return (
     <Main>

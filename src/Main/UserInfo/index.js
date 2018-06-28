@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { users } from "../../UI/data";
-import bigAvatar from "../../UI/icons/everyinteract-big.png";
-import iconJoined from "./icon-joined.svg";
-import iconLink from "./icon-link.svg";
-import iconLocation from "./icon-location.svg";
-import official from "../../UI/icons/official.png";
+import React from 'react';
+import styled from 'styled-components';
+import { users } from '../../UI/data';
+import bigAvatar from '../../UI/icons/everyinteract-big.png';
+import iconJoined from './icon-joined.svg';
+import iconLink from './icon-link.svg';
+import iconLocation from './icon-location.svg';
+import official from '../../UI/icons/official.png';
 
 const UserInfo = styled.div`
   padding-right: 10px;
@@ -117,27 +117,46 @@ export default ({ userAdress }) => {
     <UserInfo>
       <UserAvatar src={bigAvatar} />
       <UserName>
-        {info.username} <TickImg src={official} />
+        {info.username}
+        {' '}
+        <TickImg src={official} />
       </UserName>
       <Following>
-        @{info.useradress} <SmallerGrayText>Follows you</SmallerGrayText>
+        @
+        {info.useradress}
+        {' '}
+        <SmallerGrayText>
+Follows you
+        </SmallerGrayText>
       </Following>
-      <Description>{info.description}</Description>
+      <Description>
+        {info.description}
+      </Description>
       <Country>
         <Icon src={iconLocation} />
-        <GrayText>{info.city}</GrayText>
+        <GrayText>
+          {info.city}
+        </GrayText>
       </Country>
       <WebSiteInfo>
         <Icon src={iconLink} />
-        <WebSite href={`http://${info.website}`}>{info.website}</WebSite>
+        <WebSite href={`http://${info.website}`}>
+          {info.website}
+        </WebSite>
       </WebSiteInfo>
       <Joined>
         <Icon src={iconJoined} />
-        <GrayText>{info.joined}</GrayText>
+        <GrayText>
+          {info.joined}
+        </GrayText>
       </Joined>
       <Buttons>
-        <BlueButton>Tweet to</BlueButton>
-        <BlueButton>Message</BlueButton>
+        <BlueButton>
+Tweet to
+        </BlueButton>
+        <BlueButton>
+Message
+        </BlueButton>
       </Buttons>
     </UserInfo>
   );

@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Message from "./Message";
-import { messages } from "../UI/data";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Message from './Message';
+import { messages } from '../UI/data';
 
 const Tweets = styled.div`
   background: #fff;
@@ -15,7 +15,7 @@ const Menu = styled.div`
 
 const MenuLink = styled(Link)`
   font-size: 18px;
-  color: ${props => (props.active ? "#000000" : "#1da1f2")};
+  color: ${({ active }) => (active ? '#000000' : '#1da1f2')};
   margin-right: 25px;
   text-decoration: none;
 
@@ -39,25 +39,25 @@ const BluedLink = styled(Link)`
   }
 `;
 
-const BluedLinkOuter = BluedLink.withComponent("a");
+const BluedLinkOuter = BluedLink.withComponent('a');
 
-const addLinks = message =>
-  message.split(" ").map((word, key) => {
-    if (word.slice(0, 1) === "#")
-      return (
-        <BluedLink
-          key={key}
-          to={`/tags/${word.slice(1)}`}
-        >{`${word} `}</BluedLink>
-      );
-    if (word.slice(0, 7) === "http://")
-      return (
-        <BluedLinkOuter key={key} href={word}>{`${word.slice(
-          7
-        )} `}</BluedLinkOuter>
-      );
-    return `${word} `;
-  });
+const addLinks = message => message.split(' ').map((word) => {
+  if (word.slice(0, 1) === '#') {
+    return (
+      <BluedLink key={word} to={`/tags/${word.slice(1)}`}>
+        {`${word} `}
+      </BluedLink>
+    );
+  }
+  if (word.slice(0, 7) === 'http://') {
+    return (
+      <BluedLinkOuter key={word} href={word}>
+        {`${word.slice(7)} `}
+      </BluedLinkOuter>
+    );
+  }
+  return `${word} `;
+});
 
 export default ({ userAdress }) => (
   <Tweets>
@@ -66,9 +66,11 @@ export default ({ userAdress }) => (
         Tweets
       </MenuLink>
       <MenuLink to={`/${userAdress}/tweetsandreplies`}>
-        Tweets & replies
+Tweets & replies
       </MenuLink>
-      <MenuLink to={`/${userAdress}/media`}>Media</MenuLink>
+      <MenuLink to={`/${userAdress}/media`}>
+Media
+      </MenuLink>
     </Menu>
     <Cards>
       {messages.map(
@@ -83,7 +85,7 @@ export default ({ userAdress }) => (
           retweets,
           likes,
           currentUserLiked,
-          message
+          message,
         }) => (
           <Message
             key={id}
@@ -97,9 +99,11 @@ export default ({ userAdress }) => (
             likes={likes}
             currentUserLiked={currentUserLiked}
           >
-            <MessageBody>{addLinks(message)}</MessageBody>
+            <MessageBody>
+              {addLinks(message)}
+            </MessageBody>
           </Message>
-        )
+        ),
       )}
     </Cards>
   </Tweets>
