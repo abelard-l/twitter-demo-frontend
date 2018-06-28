@@ -110,20 +110,20 @@ const BlueButton = styled.button`
   }
 `;
 
-export default ({ userAdress }) => {
-  const info = users.filter(user => user.useradress === userAdress)[0];
+export default ({ userid }) => {
+  const info = users.find(user => user.userAddress === userid);
 
   return (
     <UserInfo>
       <UserAvatar src={bigAvatar} />
       <UserName>
-        {info.username}
+        {info.userName}
         {' '}
         <TickImg src={official} />
       </UserName>
       <Following>
         @
-        {info.useradress}
+        {info.userAddress}
         {' '}
         <SmallerGrayText>
 Follows you

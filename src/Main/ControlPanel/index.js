@@ -12,9 +12,9 @@ const ControlPanel = styled.div`
   margin-bottom: 9px;
 `;
 
-const StatLink = styled(NavLink)``;
+const Link = styled(NavLink)``;
 
-const StatItem = styled.div`
+const TextAndAmount = styled.div`
   border-bottom: ${({ active }) => (active ? '4px solid #1DA1F2' : '4px solid #fff')};
   display: inline-block;
   cursor: pointer;
@@ -48,18 +48,18 @@ const StatInfos = styled.div`
 `;
 
 const StatInfo = ({
-  to, amount, active, name, userAdress,
+  to, amount, active, children,
 }) => (
-  <StatLink exact to={`/${userAdress}/${to}`}>
-    <StatItem active={active}>
+  <Link exact to={to}>
+    <TextAndAmount active={active}>
       <Text active={active}>
-        {name}
+        {children}
       </Text>
       <Amount active={active}>
         <FormattedNumber value={amount} />
       </Amount>
-    </StatItem>
-  </StatLink>
+    </TextAndAmount>
+  </Link>
 );
 
 const FollowBlock = styled.div`
@@ -75,24 +75,27 @@ const FollowBtnControl = FollowBtn.extend`
 
 const MoreImg = styled.img``;
 
-export default ({ userAdress }) => (
+export default ({ userid }) => (
   <ControlPanel>
     <div className="container">
       <div className="row">
         <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
-            {statInfos.map(({
-              id, to, amount, active, name,
-            }) => (
-              <StatInfo
-                userAdress={userAdress}
-                key={id}
-                to={to}
-                amount={amount}
-                active={active}
-                name={name}
-              />
-            ))}
+            <StatInfo to={`/${userid}/`} amount={8058} active="true">
+              Tweets
+            </StatInfo>
+            <StatInfo to={`/${userid}/following`} amount={721}>
+              Following
+            </StatInfo>
+            <StatInfo to={`/${userid}/followers`} amount={1815}>
+              Followers
+            </StatInfo>
+            <StatInfo to={`/${userid}/likes`} amount={460}>
+              Likes
+            </StatInfo>
+            <StatInfo to={`/${userid}/lists`} amount={2}>
+              Lists
+            </StatInfo>
           </StatInfos>
         </div>
         <div className="col-xs-3">

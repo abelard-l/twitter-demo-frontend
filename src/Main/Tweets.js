@@ -30,45 +30,16 @@ const Cards = styled.section`
 
 const MessageBody = styled.div``;
 
-const BluedLink = styled(Link)`
-  color: #1da1f2;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const BluedLinkOuter = BluedLink.withComponent('a');
-
-const addLinks = message => message.split(' ').map((word) => {
-  if (word.slice(0, 1) === '#') {
-    return (
-      <BluedLink key={word} to={`/tags/${word.slice(1)}`}>
-        {`${word} `}
-      </BluedLink>
-    );
-  }
-  if (word.slice(0, 7) === 'http://') {
-    return (
-      <BluedLinkOuter key={word} href={word}>
-        {`${word.slice(7)} `}
-      </BluedLinkOuter>
-    );
-  }
-  return `${word} `;
-});
-
-export default ({ userAdress }) => (
+export default ({ userid }) => (
   <Tweets>
     <Menu>
-      <MenuLink to={`/${userAdress}/`} active="true">
+      <MenuLink to={`/${userid}/`} active="true">
         Tweets
       </MenuLink>
-      <MenuLink to={`/${userAdress}/tweetsandreplies`}>
+      <MenuLink to={`/${userid}/tweetsandreplies`}>
 Tweets & replies
       </MenuLink>
-      <MenuLink to={`/${userAdress}/media`}>
+      <MenuLink to={`/${userid}/media`}>
 Media
       </MenuLink>
     </Menu>
@@ -78,29 +49,31 @@ Media
           id,
           pinned,
           avatar,
-          username,
-          useradress,
+          userName,
+          userAddress,
           dateinfo,
           comments,
           retweets,
           likes,
           currentUserLiked,
+          image,
           message,
         }) => (
           <Message
             key={id}
             pinned={pinned}
             avatar={avatar}
-            username={username}
-            useradress={useradress}
+            userName={userName}
+            userAddress={userAddress}
             dateinfo={dateinfo}
             comments={comments}
             retweets={retweets}
             likes={likes}
             currentUserLiked={currentUserLiked}
+            image={image}
           >
             <MessageBody>
-              {addLinks(message)}
+              {message}
             </MessageBody>
           </Message>
         ),

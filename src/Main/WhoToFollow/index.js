@@ -31,36 +31,36 @@ const Dot = styled.img`
   margin: 0px 8px;
 `;
 
-const SugWrap = styled.div`
+const SuggestionInfo = styled.div`
   display: flex;
   border-bottom: 1px solid #e6ecf0;
   justify-content: space-between;
   padding: 9px 0px 16px 0px;
 `;
 
-const SugImgWrap = styled.div``;
+const ToFollowBrand = styled.div``;
 
-const SugImg = styled.img``;
+const ToFollowImg = styled.img``;
 
-const SugMain = styled.div`
+const Main = styled.div`
   flex-basis: 65%;
   max-width: 65%;
 `;
 
-const SugTitle = styled.div`
+const UserInfo = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 9px;
 `;
 
-const SugName = styled.span`
+const Name = styled.span`
   font-size: 13px;
   color: #292f33;
   margin-right: 3px;
   white-space: nowrap;
 `;
 
-const SugAdress = styled.span`
+const Address = styled.span`
   font-size: 13px;
   color: #657786;
   margin-left: 3px;
@@ -84,26 +84,26 @@ const Suggestions = styled.div``;
 const Suggestion = ({
   image, adress, official, name,
 }) => (
-  <SugWrap>
-    <SugImgWrap>
-      <SugImg src={image} />
-    </SugImgWrap>
-    <SugMain>
-      <SugTitle>
-        <SugName>
+  <SuggestionInfo>
+    <ToFollowBrand>
+      <ToFollowImg src={image} />
+    </ToFollowBrand>
+    <Main>
+      <UserInfo>
+        <Name>
           {name}
-        </SugName>
+        </Name>
         {official && <IconOfficial src={iconOfficial} />}
-        <SugAdress>
+        <Address>
           {adress}
-        </SugAdress>
-      </SugTitle>
+        </Address>
+      </UserInfo>
       <FollowBtn>
 Follow
       </FollowBtn>
-    </SugMain>
+    </Main>
     <CloseBtn />
-  </SugWrap>
+  </SuggestionInfo>
 );
 
 const FindPeople = styled.div`
@@ -133,9 +133,9 @@ Refresh
     </Title>
     <Suggestions>
       {suggestions.map(({
-        id, image, adress, official, name,
+        id, image, address, official, name,
       }) => (
-        <Suggestion key={id} image={image} adress={adress} official={official} name={name} />
+        <Suggestion key={id} image={image} address={address} official={official} name={name} />
       ))}
     </Suggestions>
     <FindPeople>

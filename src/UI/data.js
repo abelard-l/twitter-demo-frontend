@@ -1,12 +1,14 @@
-import ai from './icons/ai.png';
+import appleinsider from './icons/appleinsider.png';
 import creode from './icons/creode.png';
-import e from './icons/e.png';
+import epiphanySearch from './icons/epiphany-search.png';
 import everyinteract from './icons/everyinteract-middle.png';
+import futureOfTheWeb from './icons/future-of-the-web.png';
+import everyInteraction from './icons/every-interaction-image.png';
 
 const users = [
   {
-    username: 'Every Interaction',
-    useradress: 'EveryInteract',
+    userName: 'Every Interaction',
+    userAddress: 'EveryInteract',
     description:
       'UX Design studio focussed problem solving creativity. Design to us is how can we make things *work* amazing.',
     city: 'London, UK',
@@ -14,8 +16,8 @@ const users = [
     joined: 'May 2008',
   },
   {
-    username: 'Nick Brooks',
-    useradress: 'NickBrooks',
+    userName: 'Nick Brooks',
+    userAddress: 'NickBrooks',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora minima fugit corporis.',
     city: 'Shreveport, USA',
@@ -23,8 +25,8 @@ const users = [
     joined: 'May 2010',
   },
   {
-    username: 'Stephen',
-    useradress: 'Stephen',
+    userName: 'Stephen',
+    userAddress: 'Stephen',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora minima fugit corporis.',
     city: 'Ramstein, Germany',
@@ -32,8 +34,8 @@ const users = [
     joined: 'April 2011',
   },
   {
-    username: 'Raimond Green',
-    useradress: 'RaimondGreen',
+    userName: 'Raimond Green',
+    userAddress: 'RaimondGreen',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora minima fugit corporis.',
     city: 'Berlin, Germany',
@@ -41,8 +43,8 @@ const users = [
     joined: 'May 2006',
   },
   {
-    username: 'Ashley',
-    useradress: 'Ashley',
+    userName: 'Ashley',
+    userAddress: 'Ashley',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora minima fugit corporis.',
     city: 'Liverpool, UK',
@@ -50,8 +52,8 @@ const users = [
     joined: 'Junyary 2009',
   },
   {
-    username: 'The Best Design',
-    useradress: 'TheBestDesign',
+    userName: 'The Best Design',
+    userAddress: 'TheBestDesign',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora minima fugit corporis.',
     city: 'Paris, Franse',
@@ -59,8 +61,8 @@ const users = [
     joined: 'April 2009',
   },
   {
-    username: 'Logical Exercises',
-    useradress: 'LogicalExercises',
+    userName: 'Logical Exercises',
+    userAddress: 'LogicalExercises',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora minima fugit corporis.',
     city: 'Los-Angeles, USA',
@@ -114,63 +116,25 @@ const countryTrends = [
   },
 ];
 
-const statInfos = [
-  {
-    id: 1,
-    to: '',
-    amount: 8058,
-    active: true,
-    name: 'Tweets',
-  },
-  {
-    id: 2,
-    to: 'following',
-    amount: 721,
-    active: null,
-    name: 'Following',
-  },
-  {
-    id: 3,
-    to: 'followers',
-    amount: 1815,
-    active: null,
-    name: 'Followers',
-  },
-  {
-    id: 4,
-    to: 'likes',
-    amount: 460,
-    active: null,
-    name: 'Likes',
-  },
-  {
-    id: 5,
-    to: 'lists',
-    amount: 2,
-    active: null,
-    name: 'Lists',
-  },
-];
-
 const suggestions = [
   {
     id: 1,
-    image: ai,
-    adress: '@appleinsider',
+    image: appleinsider,
+    address: '@appleinsider',
     official: null,
     name: 'AppleInsider',
   },
   {
     id: 2,
     image: creode,
-    adress: '@Creode',
+    address: '@Creode',
     official: true,
     name: 'Creode',
   },
   {
     id: 3,
-    image: e,
-    adress: '@EpiphanySearch',
+    image: epiphanySearch,
+    address: '@EpiphanySearch',
     official: null,
     name: 'Epiphany Search',
   },
@@ -180,47 +144,50 @@ const messages = [
   {
     id: 1,
     pinned: true,
-    username: 'Every Interaction',
-    useradress: 'EveryInteract',
+    userName: 'Every Interaction',
+    userAddress: 'EveryInteract',
     avatar: everyinteract,
     dateinfo: '2 Mar 2015',
     comments: null,
     retweets: 17,
     likes: 47,
     currentUserLiked: true,
+    image: everyInteraction,
     message:
       'We’ve made some more resources for all you wonderful #design folk http://everyinteraction.com/resources/ #webdesign #UI',
   },
   {
     id: 2,
     pinned: null,
-    username: 'Every Interaction',
-    useradress: 'EveryInteract',
+    userName: 'Every Interaction',
+    userAddress: 'EveryInteract',
     avatar: everyinteract,
     dateinfo: '23h',
     comments: 1,
     retweets: 4,
     likes: 2,
     currentUserLiked: null,
+    image: null,
     message:
       'Our new website concept; Taking you from… @ Every Interaction http://instagram.com/p/BNFGrfhBP3M/',
   },
   {
     id: 3,
-    pinned: true,
-    username: 'Every Interaction',
-    useradress: 'EveryInteract',
+    pinned: null,
+    userName: 'Every Interaction',
+    userAddress: 'EveryInteract',
     avatar: everyinteract,
     dateinfo: 'Nov 18',
     comments: null,
     retweets: null,
     likes: null,
     currentUserLiked: null,
+    image: futureOfTheWeb,
     message:
       'Variable web fonts are coming, and will open a world of opportunities for weight use online',
   },
 ];
 
 export {
-  users, countryTrends, statInfos, suggestions, messages,
+  users, countryTrends, suggestions, messages,
 };

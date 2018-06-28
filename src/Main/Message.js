@@ -56,7 +56,7 @@ const UserName = styled.span`
   margin-right: 7px;
 `;
 
-const UserAdress = styled.span`
+const UserAddress = styled.span`
   line-height: 28px;
   font-size: 13px;
   color: #657786;
@@ -122,16 +122,29 @@ const PrivateMessageBtn = styled.button`
   width: 15px;
 `;
 
+const SubImg = styled.img`
+  display: block;
+  margin: 10px auto 0px auto;
+`;
+
+const Dot = styled.span`
+  margin: 0 3px;
+  &:before {
+    content: '•';
+  }
+`;
+
 export default ({
   pinned = false,
-  username,
-  useradress,
+  userName,
+  userAddress,
   avatar,
   dateinfo,
   comments,
   retweets,
   likes,
   currentUserLiked = false,
+  image,
   children,
 }) => (
   <UserPost>
@@ -150,20 +163,20 @@ Pinned Tweet
       <MessageAndStat>
         <UserInfo>
           <UserName>
-            {username}
+            {userName}
           </UserName>
-          <UserAdress>
-            {useradress}
-          </UserAdress>
+          <UserAddress>
+            {userAddress}
+          </UserAddress>
           <DateInfo>
-            {' '}
-            •
+            <Dot />
             {dateinfo}
           </DateInfo>
         </UserInfo>
         <Message>
           {children}
         </Message>
+        {image && <SubImg src={image} />}
         <Stats>
           <ActionAndStat>
             <CommentBtn />
