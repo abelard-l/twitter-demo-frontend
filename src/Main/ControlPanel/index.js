@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FormattedNumber } from 'react-intl';
-import { statInfos } from '../../UI/data';
 import FollowBtn from '../../UI/FollowBtn';
 import more from './more.png';
 
