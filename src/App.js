@@ -15,6 +15,7 @@ export default () => (
         <Helmet title="EveryInteract (@EveryInteract) | Twitter" />
         <Header />
         <Switch>
+          <Redirect exact from="/" to="/EveryInteract" />
           <Route exact path="/moments" component={Generic} />
           <Route exact path="/notifications" component={Generic} />
           <Route exact path="/messages" component={Generic} />
@@ -27,7 +28,6 @@ export default () => (
           <Route exact path="/cookies" component={Generic} />
           <Route exact path="/ads" component={Generic} />
           <Route path="/:userid" component={Main} />
-          <Redirect exact from="/" to="/EveryInteract" />
         </Switch>
       </React.Fragment>
     </Router>
