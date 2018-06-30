@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import BlueLink from "../../UI/BlueLink";
-import iconPhotosVideos from "./icon-photos-videos.svg";
-import photosVideos1 from "./photos-videos-1.jpg";
-import photosVideos2 from "./photos-videos-2.jpg";
-import photosVideos3 from "./photos-videos-3.jpg";
-import photosVideos4 from "./photos-videos-4.jpg";
-import photosVideos5 from "./photos-videos-5.jpg";
-import photosVideos6 from "./photos-videos-6.jpg";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import BlueLink from '../../UI/BlueLink';
+import iconPhotosVideos from './icon-photos-videos.svg';
+import photosVideos1 from './photos-videos-1.jpg';
+import photosVideos2 from './photos-videos-2.jpg';
+import photosVideos3 from './photos-videos-3.jpg';
+import photosVideos4 from './photos-videos-4.jpg';
+import photosVideos5 from './photos-videos-5.jpg';
+import photosVideos6 from './photos-videos-6.jpg';
 
 const UserPhotosAndVideos = styled.div``;
 
@@ -40,7 +40,9 @@ export default () => (
   <UserPhotosAndVideos>
     <Title>
       <Icon src={iconPhotosVideos} />
-      <BlueLink to={"/EveryInteract/media/"}>522 Photos and videos</BlueLink>
+      <BlueLink to="/EveryInteract/media/">
+522 Photos and videos
+      </BlueLink>
     </Title>
     <PhotosVideos>
       <PhotoVideo to="/EveryInteract/photos/111" image={photosVideos1} />

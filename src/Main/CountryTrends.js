@@ -1,9 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { FormattedNumber } from "react-intl";
-import TextBtn from "../UI/TextBtn";
-import iconOval from "../UI/icons/oval.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { FormattedNumber } from 'react-intl';
+import { countryTrends } from '../UI/data';
+import TextBtn from '../UI/TextBtn';
+import iconOval from '../UI/icons/oval.svg';
 
 const CountryTrends = styled.div`
   background: #fff;
@@ -47,44 +48,43 @@ const SubTrendText = styled.div`
   line-height: 16px;
 `;
 
-const Trend = ({ to, count, description, children }) => (
+const Trend = ({
+  to, count, description, name,
+}) => (
   <TrendWrap>
-    <TrendLink to={to}>{children}</TrendLink>
+    <TrendLink to={to}>
+      {name}
+    </TrendLink>
     {count && (
       <SubTrendText>
-        <FormattedNumber value={count} /> Tweets
+        <FormattedNumber value={count} />
+        {' '}
+Tweets
       </SubTrendText>
     )}
-    {description && <SubTrendText>{description}</SubTrendText>}
+    {description && (
+    <SubTrendText>
+      {description}
+    </SubTrendText>
+    )}
   </TrendWrap>
 );
 
 export default () => (
   <CountryTrends>
     <Title>
-      <Header>United Kingdom Trends</Header>
+      <Header>
+United Kingdom Trends
+      </Header>
       <Dot src={iconOval} />
-      <TextBtn>Change</TextBtn>
+      <TextBtn>
+Change
+      </TextBtn>
     </Title>
-    <Trend to="/trends/BringYourDogToWorkDay">#BringYourDogToWorkDay</Trend>
-    <Trend to="/trends/FridayFeeling" count={12100}>
-      #FridayFeeling
-    </Trend>
-    <Trend
-      to="/trends/BrexitAnniversary"
-      description="It’s one year since the UK voted to leave the European
-      Union"
-    >
-      #BrexitAnniversary
-    </Trend>
-    <Trend to="/trends/HMSQueenElizabeth" count={1036}>
-      HMS Queen Elizabeth
-    </Trend>
-    <Trend to="/trends/JoeBudden" count={1036}>
-      Joe Budden
-    </Trend>
-    <Trend to="/trends/Trident" count={6136}>
-      Trident
-    </Trend>
+    {countryTrends.map(({
+      id, to, count, description, name,
+    }) => (
+      <Trend key={id} to={to} count={count} description={description} name={name} />
+    ))}
   </CountryTrends>
 );

@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import bigAvatar from "./big-avatar.png";
-import iconJoined from "./icon-joined.svg";
-import iconLink from "./icon-link.svg";
-import iconLocation from "./icon-location.svg";
-import official from "../../UI/icons/official.png";
+import React from 'react';
+import styled from 'styled-components';
+import { users } from '../../UI/data';
+import bigAvatar from '../../UI/icons/everyinteract-big.png';
+import iconJoined from './icon-joined.svg';
+import iconLink from './icon-link.svg';
+import iconLocation from './icon-location.svg';
+import official from '../../UI/icons/official.png';
 
 const UserInfo = styled.div`
   padding-right: 10px;
@@ -109,34 +110,54 @@ const BlueButton = styled.button`
   }
 `;
 
-export default () => (
-  <UserInfo>
-    <UserAvatar src={bigAvatar} />
-    <UserName>
-      Every Interaction <TickImg src={official} />
-    </UserName>
-    <Following>
-      @EveryInteract <SmallerGrayText>Follows you</SmallerGrayText>
-    </Following>
-    <Description>
-      UX Design studio focussed problem solving creativity. Design to us is how
-      can we make things *work* amazing.
-    </Description>
-    <Country>
-      <Icon src={iconLocation} />
-      <GrayText>London, UK</GrayText>
-    </Country>
-    <WebSiteInfo>
-      <Icon src={iconLink} />
-      <WebSite href="http://everyinteraction.com">everyinteraction.com</WebSite>
-    </WebSiteInfo>
-    <Joined>
-      <Icon src={iconJoined} />
-      <GrayText>Joined May 2008</GrayText>
-    </Joined>
-    <Buttons>
-      <BlueButton>Tweet to</BlueButton>
-      <BlueButton>Message</BlueButton>
-    </Buttons>
-  </UserInfo>
-);
+export default ({ userid }) => {
+  const info = users.find(user => user.userAddress === userid);
+
+  return (
+    <UserInfo>
+      <UserAvatar src={bigAvatar} />
+      <UserName>
+        {info.userName}
+        {' '}
+        <TickImg src={official} />
+      </UserName>
+      <Following>
+        @
+        {info.userAddress}
+        {' '}
+        <SmallerGrayText>
+Follows you
+        </SmallerGrayText>
+      </Following>
+      <Description>
+        {info.description}
+      </Description>
+      <Country>
+        <Icon src={iconLocation} />
+        <GrayText>
+          {info.city}
+        </GrayText>
+      </Country>
+      <WebSiteInfo>
+        <Icon src={iconLink} />
+        <WebSite href={`http://${info.website}`}>
+          {info.website}
+        </WebSite>
+      </WebSiteInfo>
+      <Joined>
+        <Icon src={iconJoined} />
+        <GrayText>
+          {info.joined}
+        </GrayText>
+      </Joined>
+      <Buttons>
+        <BlueButton>
+Tweet to
+        </BlueButton>
+        <BlueButton>
+Message
+        </BlueButton>
+      </Buttons>
+    </UserInfo>
+  );
+};
