@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Message from './Message';
-import { messages } from '../UI/data';
 
-const Tweets = styled.div`
+const Messages = styled.div`
   background: #fff;
 `;
 
@@ -28,50 +27,60 @@ const Cards = styled.section`
   background: #fff;
 `;
 
-const MessageBody = styled.div``;
+export default class Tweets extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: false,
+      messages: [],
+    };
+  }
 
-export default ({ userid }) => (
-  <Tweets>
-    <Menu>
-      <MenuLink to={`/${userid}/`} active="true">
-        Tweets
-      </MenuLink>
-      <MenuLink to={`/${userid}/tweetsandreplies`}>Tweets & replies</MenuLink>
-      <MenuLink to={`/${userid}/media`}>Media</MenuLink>
-    </Menu>
-    <Cards>
-      {messages.map(
-        ({
-          id,
-          pinned,
-          avatar,
-          userName,
-          userAddress,
-          dateinfo,
-          comments,
-          retweets,
-          likes,
-          currentUserLiked,
-          image,
-          message,
-        }) => (
-          <Message
-            key={id}
-            pinned={pinned}
-            avatar={avatar}
-            userName={userName}
-            userAddress={userAddress}
-            dateinfo={dateinfo}
-            comments={comments}
-            retweets={retweets}
-            likes={likes}
-            currentUserLiked={currentUserLiked}
-            image={image}
-          >
-            <MessageBody>{message}</MessageBody>
-          </Message>
-        ),
-      )}
-    </Cards>
-  </Tweets>
-);
+  componentWillMount() {
+    fetch(
+      `https://twitter-demo.erodionov.ru/api/v1/accounts/1/statuses?since_id=1&access_token=${
+        process.env.REACT_APP_TWITTER_KEY
+      }`,
+    )
+      .then(response => response.json())
+      .then(messages => this.setState({ messages }))
+      .catch(error => this.setState({ error }));
+  }
+
+  render() {
+    const { userid } = this.props;
+    const { error, messages } = this.state;
+    if (error) return error;
+
+    return (
+      <Messages>
+        <Menu>
+          <MenuLink to={`/${userid}/`} active="true">
+            Tweets
+          </MenuLink>
+          <MenuLink to={`/${userid}/tweetsandreplies`}>Tweets & replies</MenuLink>
+          <MenuLink to={`/${userid}/media`}>Media</MenuLink>
+        </Menu>
+        <Cards>
+          {messages.map(message => (
+            <Message
+              key={message.id}
+              pinned={message.pinned}
+              avatar={message.account.avatar_static}
+              userName={message.account.display_name}
+              userAddress={message.account.username}
+              dateinfo={message.created_at}
+              comments={message.comments}
+              retweets={message.reblogs_count}
+              likes={message.favourites_count}
+              currentUserLiked={message.activeLike}
+              images={message.media_attachments}
+            >
+              {message.content}
+            </Message>
+          ))}
+        </Cards>
+      </Messages>
+    );
+  }
+}

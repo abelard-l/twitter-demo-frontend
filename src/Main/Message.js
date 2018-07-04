@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import formatDate from '../UI/formatDate';
 import iconComments from './icons/icon-comments.svg';
 import iconPrivateMessage from './icons/icon-private-message.svg';
 import iconLike from './icons/icon-like.svg';
@@ -40,7 +41,10 @@ const Avatar = styled.div`
   max-width: 10%;
 `;
 
-const AvatarIcon = styled.img``;
+const AvatarIcon = styled.img`
+  max-width: 50px;
+  border-radius: 50%;
+`;
 
 const MessageAndStat = styled.div`
   flex-basis: 90%;
@@ -125,6 +129,7 @@ const PrivateMessageBtn = styled.button`
 const SubImg = styled.img`
   display: block;
   margin: 10px auto 0px auto;
+  max-width: 500px;
 `;
 
 const Dot = styled.span`
@@ -144,7 +149,7 @@ export default ({
   retweets,
   likes,
   currentUserLiked = false,
-  image,
+  images,
   children,
 }) => (
   <UserPost>
@@ -161,14 +166,14 @@ export default ({
       <MessageAndStat>
         <UserInfo>
           <UserName>{userName}</UserName>
-          <UserAddress>{userAddress}</UserAddress>
+          <UserAddress>@{userAddress}</UserAddress>
           <DateInfo>
             <Dot />
-            {dateinfo}
+            {formatDate(dateinfo)}
           </DateInfo>
         </UserInfo>
-        <Message>{children}</Message>
-        {image && <SubImg src={image} />}
+        <Message dangerouslySetInnerHTML={{ __html: children }} />
+        {images.map(map => <SubImg key={map.id} src={map.url} />)}
         <Stats>
           <ActionAndStat>
             <CommentBtn />
@@ -176,11 +181,11 @@ export default ({
           </ActionAndStat>
           <ActionAndStat>
             <RetweetBtn />
-            {retweets && <Amount>{retweets}</Amount>}
+            <Amount>{retweets}</Amount>
           </ActionAndStat>
           <ActionAndStat>
             <LikeBtn currentUserLiked={currentUserLiked} />
-            {likes && <Amount currentUserLiked={currentUserLiked}>{likes}</Amount>}
+            <Amount currentUserLiked={currentUserLiked}>{likes}</Amount>
           </ActionAndStat>
           <PrivateMessageBtn />
         </Stats>

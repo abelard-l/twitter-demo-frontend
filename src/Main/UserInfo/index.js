@@ -114,6 +114,7 @@ const BlueButton = styled.button`
 
 export default class UserInfo extends Component {
   state = {
+    error: false,
     info: {},
   };
 
@@ -124,23 +125,26 @@ export default class UserInfo extends Component {
       }`,
     )
       .then(response => response.json())
-      .then(info => this.setState({ info }));
+      .then(info => this.setState({ info }))
+      .catch(error => this.setState({ error }));
   }
 
   render() {
-    const { info } = this.state;
+    const { error, info } = this.state;
+    if (error) return error;
+
     return (
       <Information>
         <Helmet title={`${info.username} (@${info.acct}) | Twitter`} />
         <UserAvatar src={info.avatar_static} />
         <UserName>
-          {info.username} <TickImg src={official} />
+          {info.display_name} <TickImg src={official} />
         </UserName>
         <Following>
           @
           {info.acct} <SmallerGrayText>Follows you</SmallerGrayText>
         </Following>
-        <Description>{info.note}</Description>
+        <Description dangerouslySetInnerHTML={{ __html: info.note }} />
         {info.city && (
           <Country>
             <Icon src={iconLocation} />
