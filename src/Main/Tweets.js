@@ -36,12 +36,8 @@ export default ({ userid }) => (
       <MenuLink to={`/${userid}/`} active="true">
         Tweets
       </MenuLink>
-      <MenuLink to={`/${userid}/tweetsandreplies`}>
-Tweets & replies
-      </MenuLink>
-      <MenuLink to={`/${userid}/media`}>
-Media
-      </MenuLink>
+      <MenuLink to={`/${userid}/tweetsandreplies`}>Tweets & replies</MenuLink>
+      <MenuLink to={`/${userid}/media`}>Media</MenuLink>
     </Menu>
     <Cards>
       {messages.map(
@@ -72,9 +68,7 @@ Media
             currentUserLiked={currentUserLiked}
             image={image}
           >
-            <MessageBody>
-              {message}
-            </MessageBody>
+            <MessageBody>{message}</MessageBody>
           </Message>
         ),
       )}

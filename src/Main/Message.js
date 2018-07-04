@@ -151,9 +151,7 @@ export default ({
     {pinned && (
       <Pinned>
         <Icon src={iconPinned} />
-        <PinnedText>
-Pinned Tweet
-        </PinnedText>
+        <PinnedText>Pinned Tweet</PinnedText>
       </Pinned>
     )}
     <Main>
@@ -162,45 +160,27 @@ Pinned Tweet
       </Avatar>
       <MessageAndStat>
         <UserInfo>
-          <UserName>
-            {userName}
-          </UserName>
-          <UserAddress>
-            {userAddress}
-          </UserAddress>
+          <UserName>{userName}</UserName>
+          <UserAddress>{userAddress}</UserAddress>
           <DateInfo>
             <Dot />
             {dateinfo}
           </DateInfo>
         </UserInfo>
-        <Message>
-          {children}
-        </Message>
+        <Message>{children}</Message>
         {image && <SubImg src={image} />}
         <Stats>
           <ActionAndStat>
             <CommentBtn />
-            {comments && (
-            <Amount>
-              {comments}
-            </Amount>
-            )}
+            {comments && <Amount>{comments}</Amount>}
           </ActionAndStat>
           <ActionAndStat>
             <RetweetBtn />
-            {retweets && (
-            <Amount>
-              {retweets}
-            </Amount>
-            )}
+            {retweets && <Amount>{retweets}</Amount>}
           </ActionAndStat>
           <ActionAndStat>
             <LikeBtn currentUserLiked={currentUserLiked} />
-            {likes && (
-            <Amount currentUserLiked={currentUserLiked}>
-              {likes}
-            </Amount>
-            )}
+            {likes && <Amount currentUserLiked={currentUserLiked}>{likes}</Amount>}
           </ActionAndStat>
           <PrivateMessageBtn />
         </Stats>
