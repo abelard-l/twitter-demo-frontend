@@ -90,17 +90,11 @@ const Suggestion = ({
     </ToFollowBrand>
     <Main>
       <UserInfo>
-        <Name>
-          {name}
-        </Name>
+        <Name>{name}</Name>
         {official && <IconOfficial src={iconOfficial} />}
-        <Address>
-          {adress}
-        </Address>
+        <Address>{adress}</Address>
       </UserInfo>
-      <FollowBtn>
-Follow
-      </FollowBtn>
+      <FollowBtn>Follow</FollowBtn>
     </Main>
     <CloseBtn />
   </SuggestionInfo>
@@ -119,13 +113,9 @@ const IconPeople = styled.img`
 export default () => (
   <WhoToFollow>
     <Title>
-      <Header>
-Who To Follow
-      </Header>
+      <Header>Who To Follow</Header>
       <Dot src={iconOval} />
-      <TextBtn>
-Refresh
-      </TextBtn>
+      <TextBtn>Refresh</TextBtn>
       <Dot src={iconOval} />
       <BlueLink fontSize="13px" to="/viewall">
         View all

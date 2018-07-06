@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
-import formatDate from '../../UI/formatDate';
+import formatDate from '../../Common/formatDate';
 import iconJoined from './icon-joined.svg';
 import iconLink from './icon-link.svg';
 import iconLocation from './icon-location.svg';
@@ -118,9 +118,11 @@ export default class UserInfo extends Component {
     info: {},
   };
 
-  componentWillMount() {
+  componentDidMount() {
+    const { userid } = this.props;
+
     fetch(
-      `https://twitter-demo.erodionov.ru/api/v1/accounts/1?access_token=${
+      `https://twitter-demo.erodionov.ru/api/v1/accounts/${userid}?access_token=${
         process.env.REACT_APP_TWITTER_KEY
       }`,
     )

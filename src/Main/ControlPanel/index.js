@@ -51,9 +51,7 @@ const StatInfo = ({
 }) => (
   <Link exact to={to}>
     <TextAndAmount active={active}>
-      <Text active={active}>
-        {children}
-      </Text>
+      <Text active={active}>{children}</Text>
       <Amount active={active}>
         <FormattedNumber value={amount} />
       </Amount>
@@ -99,9 +97,7 @@ export default ({ userid }) => (
         </div>
         <div className="col-xs-3">
           <FollowBlock>
-            <FollowBtnControl>
-Follow
-            </FollowBtnControl>
+            <FollowBtnControl>Follow</FollowBtnControl>
             <MoreImg src={more} />
           </FollowBlock>
         </div>

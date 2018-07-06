@@ -16,32 +16,30 @@ const Main = styled.main`
 
 export default ({ match }) => {
   const { userid } = match.params;
-  const isUser = users.filter(user => user.userAddress === userid).length !== 0;
+  // const isUser = users.filter(user => user.userAddress === userid).length !== 0;
 
   return (
     <React.Fragment>
-      {isUser && (
-        <Main>
-          <ControlPanel userid={userid} />
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-3">
-                <UserInfo userid={userid} />
-                <UserFollowers />
-                <UserPhotosAndVideos />
-              </div>
-              <div className="col-xs-6">
-                <Tweets userid={userid} />
-              </div>
-              <div className="col-xs-3">
-                <WhoToFollow />
-                <CountryTrends />
-                <Copyright />
-              </div>
+      <Main>
+        <ControlPanel userid={userid} />
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-3">
+              <UserInfo userid={userid} />
+              <UserFollowers />
+              <UserPhotosAndVideos />
+            </div>
+            <div className="col-xs-6">
+              <Tweets userid={userid} />
+            </div>
+            <div className="col-xs-3">
+              <WhoToFollow />
+              <CountryTrends />
+              <Copyright />
             </div>
           </div>
-        </Main>
-      )}
+        </div>
+      </Main>
     </React.Fragment>
   );
 };

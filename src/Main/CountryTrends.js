@@ -52,34 +52,22 @@ const Trend = ({
   to, count, description, name,
 }) => (
   <TrendWrap>
-    <TrendLink to={to}>
-      {name}
-    </TrendLink>
+    <TrendLink to={to}>{name}</TrendLink>
     {count && (
       <SubTrendText>
-        <FormattedNumber value={count} />
-        {' '}
-Tweets
+        <FormattedNumber value={count} /> Tweets
       </SubTrendText>
     )}
-    {description && (
-    <SubTrendText>
-      {description}
-    </SubTrendText>
-    )}
+    {description && <SubTrendText>{description}</SubTrendText>}
   </TrendWrap>
 );
 
 export default () => (
   <CountryTrends>
     <Title>
-      <Header>
-United Kingdom Trends
-      </Header>
+      <Header>United Kingdom Trends</Header>
       <Dot src={iconOval} />
-      <TextBtn>
-Change
-      </TextBtn>
+      <TextBtn>Change</TextBtn>
     </Title>
     {countryTrends.map(({
       id, to, count, description, name,

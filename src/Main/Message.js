@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import formatDate from '../UI/formatDate';
+import formatDate from '../Common/formatDate';
 import iconComments from './icons/icon-comments.svg';
 import iconPrivateMessage from './icons/icon-private-message.svg';
 import iconLike from './icons/icon-like.svg';
