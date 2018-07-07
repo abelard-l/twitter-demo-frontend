@@ -51,9 +51,7 @@ const StatInfo = ({
 }) => (
   <Link exact to={to}>
     <TextAndAmount active={active}>
-      <Text active={active}>
-        {children}
-      </Text>
+      <Text active={active}>{children}</Text>
       <Amount active={active}>
         <FormattedNumber value={amount} />
       </Amount>
@@ -74,34 +72,32 @@ const FollowBtnControl = FollowBtn.extend`
 
 const MoreImg = styled.img``;
 
-export default ({ userid }) => (
+export default ({ userId }) => (
   <ControlPanel>
     <div className="container">
       <div className="row">
         <div className="col-xs-offset-3 col-xs-6">
           <StatInfos>
-            <StatInfo to={`/${userid}/`} amount={8058} active="true">
+            <StatInfo to={`/${userId}/`} amount={8058} active="true">
               Tweets
             </StatInfo>
-            <StatInfo to={`/${userid}/following`} amount={721}>
+            <StatInfo to={`/${userId}/following`} amount={721}>
               Following
             </StatInfo>
-            <StatInfo to={`/${userid}/followers`} amount={1815}>
+            <StatInfo to={`/${userId}/followers`} amount={1815}>
               Followers
             </StatInfo>
-            <StatInfo to={`/${userid}/likes`} amount={460}>
+            <StatInfo to={`/${userId}/likes`} amount={460}>
               Likes
             </StatInfo>
-            <StatInfo to={`/${userid}/lists`} amount={2}>
+            <StatInfo to={`/${userId}/lists`} amount={2}>
               Lists
             </StatInfo>
           </StatInfos>
         </div>
         <div className="col-xs-3">
           <FollowBlock>
-            <FollowBtnControl>
-Follow
-            </FollowBtnControl>
+            <FollowBtnControl>Follow</FollowBtnControl>
             <MoreImg src={more} />
           </FollowBlock>
         </div>

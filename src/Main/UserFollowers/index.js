@@ -42,9 +42,7 @@ export default () => (
   <UserFollowers>
     <Title>
       <Icon src={iconFollowers} />
-      <BlueLink to="/EveryInteract/Followers">
-6 Followers you know
-      </BlueLink>
+      <BlueLink to="/EveryInteract/Followers">6 Followers you know</BlueLink>
     </Title>
     <Followers>
       <Follower to="/NickBrooks" image={follower1} />

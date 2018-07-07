@@ -54,9 +54,7 @@ const Text = styled.span`
 const Navigation = ({ to, image, children }) => (
   <MenuLink exact to={to}>
     <img alt={children} src={image} />
-    <Text>
-      {children}
-    </Text>
+    <Text>{children}</Text>
   </MenuLink>
 );
 
@@ -135,9 +133,7 @@ export default () => (
         <SearchPanel>
           <Search placeholder="Search Twitter" />
           <UserLogo src={avatar} />
-          <Tweet>
-Tweet
-          </Tweet>
+          <Tweet>Tweet</Tweet>
         </SearchPanel>
       </div>
     </div>

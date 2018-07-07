@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { users } from '../../UI/data';
-import bigAvatar from '../../UI/icons/everyinteract-big.png';
+import Helmet from 'react-helmet';
+import formatDate from '../../Common/formatDate';
 import iconJoined from './icon-joined.svg';
 import iconLink from './icon-link.svg';
 import iconLocation from './icon-location.svg';
 import official from '../../UI/icons/official.png';
 
-const UserInfo = styled.div`
+const Information = styled.div`
   padding-right: 10px;
   position: relative;
   margin-bottom: 19px;
@@ -16,6 +16,8 @@ const UserInfo = styled.div`
 const UserAvatar = styled.img`
   position: absolute;
   top: -180px;
+  border-radius: 50%;
+  max-width: 210px;
 `;
 
 const UserName = styled.div`
@@ -110,54 +112,62 @@ const BlueButton = styled.button`
   }
 `;
 
-export default ({ userid }) => {
-  const info = users.find(user => user.userAddress === userid);
+export default class UserInfo extends Component {
+  state = {
+    error: false,
+    info: {},
+  };
 
-  return (
-    <UserInfo>
-      <UserAvatar src={bigAvatar} />
-      <UserName>
-        {info.userName}
-        {' '}
-        <TickImg src={official} />
-      </UserName>
-      <Following>
-        @
-        {info.userAddress}
-        {' '}
-        <SmallerGrayText>
-Follows you
-        </SmallerGrayText>
-      </Following>
-      <Description>
-        {info.description}
-      </Description>
-      <Country>
-        <Icon src={iconLocation} />
-        <GrayText>
-          {info.city}
-        </GrayText>
-      </Country>
-      <WebSiteInfo>
-        <Icon src={iconLink} />
-        <WebSite href={`http://${info.website}`}>
-          {info.website}
-        </WebSite>
-      </WebSiteInfo>
-      <Joined>
-        <Icon src={iconJoined} />
-        <GrayText>
-          {info.joined}
-        </GrayText>
-      </Joined>
-      <Buttons>
-        <BlueButton>
-Tweet to
-        </BlueButton>
-        <BlueButton>
-Message
-        </BlueButton>
-      </Buttons>
-    </UserInfo>
-  );
-};
+  componentDidMount() {
+    const { userId } = this.props;
+
+    fetch(
+      `https://twitter-demo.erodionov.ru/api/v1/accounts/${userId}?access_token=${
+        process.env.REACT_APP_TWITTER_KEY
+      }`,
+    )
+      .then(response => response.json())
+      .then(info => this.setState({ info }))
+      .catch(error => this.setState({ error }));
+  }
+
+  render() {
+    const { error, info } = this.state;
+    if (error) return error;
+
+    return (
+      <Information>
+        <Helmet title={`${info.username} (@${info.acct}) | Twitter`} />
+        <UserAvatar src={info.avatar_static} />
+        <UserName>
+          {info.display_name} <TickImg src={official} />
+        </UserName>
+        <Following>
+          @
+          {info.acct} <SmallerGrayText>Follows you</SmallerGrayText>
+        </Following>
+        <Description dangerouslySetInnerHTML={{ __html: info.note }} />
+        {info.city && (
+          <Country>
+            <Icon src={iconLocation} />
+            <GrayText>{info.city}</GrayText>
+          </Country>
+        )}
+        {info.website && (
+          <WebSiteInfo>
+            <Icon src={iconLink} />
+            <WebSite href={`http://${info.website}`}>{info.website}</WebSite>
+          </WebSiteInfo>
+        )}
+        <Joined>
+          <Icon src={iconJoined} />
+          <GrayText>{formatDate(info.created_at)}</GrayText>
+        </Joined>
+        <Buttons>
+          <BlueButton>Tweet to</BlueButton>
+          <BlueButton>Message</BlueButton>
+        </Buttons>
+      </Information>
+    );
+  }
+}

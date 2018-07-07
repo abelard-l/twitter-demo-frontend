@@ -40,9 +40,7 @@ export default () => (
   <UserPhotosAndVideos>
     <Title>
       <Icon src={iconPhotosVideos} />
-      <BlueLink to="/EveryInteract/media/">
-522 Photos and videos
-      </BlueLink>
+      <BlueLink to="/EveryInteract/media/">522 Photos and videos</BlueLink>
     </Title>
     <PhotosVideos>
       <PhotoVideo to="/EveryInteract/photos/111" image={photosVideos1} />

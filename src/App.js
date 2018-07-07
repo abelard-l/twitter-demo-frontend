@@ -3,7 +3,6 @@ import { IntlProvider } from 'react-intl';
 import {
   BrowserRouter as Router, Route, Redirect, Switch,
 } from 'react-router-dom';
-import Helmet from 'react-helmet';
 import Header from './Header';
 import Main from './Main';
 import Generic from './Generic';
@@ -12,10 +11,9 @@ export default () => (
   <IntlProvider locale="en">
     <Router>
       <React.Fragment>
-        <Helmet title="EveryInteract (@EveryInteract) | Twitter" />
         <Header />
         <Switch>
-          <Redirect exact from="/" to="/EveryInteract" />
+          <Redirect exact from="/" to="/1" />
           <Route exact path="/moments" component={Generic} />
           <Route exact path="/notifications" component={Generic} />
           <Route exact path="/messages" component={Generic} />
@@ -27,7 +25,7 @@ export default () => (
           <Route exact path="/privacypolicy" component={Generic} />
           <Route exact path="/cookies" component={Generic} />
           <Route exact path="/ads" component={Generic} />
-          <Route path="/:userid" component={Main} />
+          <Route path="/:userId" component={Main} />
         </Switch>
       </React.Fragment>
     </Router>

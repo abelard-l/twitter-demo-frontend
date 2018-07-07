@@ -8,40 +8,36 @@ import Tweets from './Tweets';
 import WhoToFollow from './WhoToFollow';
 import CountryTrends from './CountryTrends';
 import Copyright from './Copyright';
-import { users } from '../UI/data';
 
 const Main = styled.main`
   background: #e6ecf0;
 `;
 
 export default ({ match }) => {
-  const { userid } = match.params;
-  const isUser = users.filter(user => user.userAddress === userid).length !== 0;
+  const { userId } = match.params;
 
   return (
     <React.Fragment>
-      {isUser && (
-        <Main>
-          <ControlPanel userid={userid} />
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-3">
-                <UserInfo userid={userid} />
-                <UserFollowers />
-                <UserPhotosAndVideos />
-              </div>
-              <div className="col-xs-6">
-                <Tweets userid={userid} />
-              </div>
-              <div className="col-xs-3">
-                <WhoToFollow />
-                <CountryTrends />
-                <Copyright />
-              </div>
+      <Main>
+        <ControlPanel userId={userId} />
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-3">
+              <UserInfo userId={userId} />
+              <UserFollowers />
+              <UserPhotosAndVideos />
+            </div>
+            <div className="col-xs-6">
+              <Tweets userId={userId} />
+            </div>
+            <div className="col-xs-3">
+              <WhoToFollow />
+              <CountryTrends />
+              <Copyright />
             </div>
           </div>
-        </Main>
-      )}
+        </div>
+      </Main>
     </React.Fragment>
   );
 };
