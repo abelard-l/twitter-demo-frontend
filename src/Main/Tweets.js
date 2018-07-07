@@ -28,23 +28,18 @@ const Cards = styled.section`
 `;
 
 export default class Tweets extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      error: false,
-      messages: [],
-    };
-
-    const { userid } = this.props;
-    this.userid = userid;
-  }
+  state = {
+    error: false,
+    messages: [],
+  };
 
   componentDidMount() {
+    const { userId } = this.props;
+
     fetch(
-      `https://twitter-demo.erodionov.ru/api/v1/accounts/${
-        this.userid
-      }/statuses?since_id=1&access_token=${process.env.REACT_APP_TWITTER_KEY}`,
+      `https://twitter-demo.erodionov.ru/api/v1/accounts/${userId}/statuses?since_id=1&access_token=${
+        process.env.REACT_APP_TWITTER_KEY
+      }`,
     )
       .then(response => response.json())
       .then(messages => this.setState({ messages }))
@@ -53,16 +48,18 @@ export default class Tweets extends Component {
 
   render() {
     const { error, messages } = this.state;
+    const { userId } = this.props;
+
     if (error) return error;
 
     return (
       <Messages>
         <Menu>
-          <MenuLink to={`/${this.userid}/`} active="true">
+          <MenuLink to={`/${userId}/`} active="true">
             Tweets
           </MenuLink>
-          <MenuLink to={`/${this.userid}/tweetsandreplies`}>Tweets & replies</MenuLink>
-          <MenuLink to={`/${this.userid}/media`}>Media</MenuLink>
+          <MenuLink to={`/${userId}/tweetsandreplies`}>Tweets & replies</MenuLink>
+          <MenuLink to={`/${userId}/media`}>Media</MenuLink>
         </Menu>
         <Cards>
           {messages.map(message => (

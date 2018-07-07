@@ -119,10 +119,10 @@ export default class UserInfo extends Component {
   };
 
   componentDidMount() {
-    const { userid } = this.props;
+    const { userId } = this.props;
 
     fetch(
-      `https://twitter-demo.erodionov.ru/api/v1/accounts/${userid}?access_token=${
+      `https://twitter-demo.erodionov.ru/api/v1/accounts/${userId}?access_token=${
         process.env.REACT_APP_TWITTER_KEY
       }`,
     )

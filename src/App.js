@@ -25,7 +25,7 @@ export default () => (
           <Route exact path="/privacypolicy" component={Generic} />
           <Route exact path="/cookies" component={Generic} />
           <Route exact path="/ads" component={Generic} />
-          <Route path="/:userid" component={Main} />
+          <Route path="/:userId" component={Main} />
         </Switch>
       </React.Fragment>
     </Router>

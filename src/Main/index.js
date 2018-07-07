@@ -15,22 +15,21 @@ const Main = styled.main`
 `;
 
 export default ({ match }) => {
-  const { userid } = match.params;
-  // const isUser = users.filter(user => user.userAddress === userid).length !== 0;
+  const { userId } = match.params;
 
   return (
     <React.Fragment>
       <Main>
-        <ControlPanel userid={userid} />
+        <ControlPanel userId={userId} />
         <div className="container">
           <div className="row">
             <div className="col-xs-3">
-              <UserInfo userid={userid} />
+              <UserInfo userId={userId} />
               <UserFollowers />
               <UserPhotosAndVideos />
             </div>
             <div className="col-xs-6">
-              <Tweets userid={userid} />
+              <Tweets userId={userId} />
             </div>
             <div className="col-xs-3">
               <WhoToFollow />
