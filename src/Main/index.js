@@ -8,7 +8,6 @@ import Tweets from './Tweets';
 import WhoToFollow from './WhoToFollow';
 import CountryTrends from './CountryTrends';
 import Copyright from './Copyright';
-import { users } from '../UI/data';
 
 const Main = styled.main`
   background: #e6ecf0;
